@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>首页</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1"/>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <!--<link rel="shortcut icon" href="http://www.suning.com/favicon.ico" type="image/x-icon" />-->
+  <link rel="stylesheet" type="text/css" href="css/sm.min.css"/>
+  <link rel="stylesheet" type="text/css" href="css/all_list.css"/>
+</head>
+<body>
+  <div class="page-group">
+    <div id="page-ptr" class="page">
+      <header class="bar bar-nav bar-alllist" style="position: relative;">
+          <div class="backdiv"><a class="icon icon-left pull-left icon-alllist"></a></div>
+          <h1 class="title lgtitle">我的收藏</h1>
+          <a id="collect-guanli" href="javascript:;" style="color: #4e4d4d;font-size:.9rem;z-index:30">管理</a>
+      </header>
+      <div class="content">
+            <ul class="content-block release-pic-block" id="collect">
+                <!-- 模板内容 -->
+            </ul> 
+        </div>
+        <div>
+          <div class="collect-btm hide">
+            <div class="collect-btmone" id="collect-btmone"><i></i>&nbsp;&nbsp;全选</div>
+             <!-- <div class="collect-btmone" id="collect-btmone"><i></i>&nbsp;&nbsp;全选</div> -->
+             <div class="collect-btmtwo" id="collect-btmtwo">取消收藏</div>
+          </div>
+        </div>
+  </div>
+  <script type="text/html" id="collectTpl">
+        {{each data as item index}}   
+        {{if item.postType==1}}
+            <li class="card h-card h-plaintext cardFlex" data-id="{{item.id}}" data-postType="{{item.postType}}" style="padding-left: 1.3rem">
+                <i class="collect-check hide"></i>
+                <div class="collect-half" style="width: 47%;margin-left: .5rem">
+                  <a href="#" class="mrt75">
+                    <span class="biaoti">
+                      {{if item.hotFlag ==1}}
+                      <img src="images/hot.png">
+                      {{/if}}
+                      {{if item.recommendFlag==1}}
+                      <img src="images/tj_@1.png">
+                      {{/if}}
+                    {{item.title}}
+                  </span>
+                    <p class="h-detailed">
+                      {{item.createTime}}
+                    </p>
+                  </a>
+                </div>
+                <div class="tianziright collect-half" style="padding:.5rem 0 .4rem 0">
+                  <a href="#" class="collect-pic" style="max-height: 4.825rem;overflow: hidden;">
+                    <!-- <img src="{{picurl}}{{item.imageUrl}}" style="width:5rem;height3.65rem"> -->
+                    {{if item.thumbnail == '' || item.thumbnail == null || item.thumbnail== undefined }}
+                    <img src="images/mo2.png">
+                    {{else}}
+                    <img class="h-rightpic" src="{{picurl}}{{item.thumbnail}}"/>
+                    {{/if}}
+                  </a>
+                </div>
+            </li>
+            {{else if item.postType == 2}}
+            <li class="card h-card h-plaintext cardFlex" data-id="{{item.id}}" data-postType="{{item.postType}}" style="padding-left: 1.3rem">
+              <i class="collect-check hide"></i>
+              <div class="collect-half" style="width: 47%;margin-left: .5rem">                 
+                <a href="#" class="mrt75">
+                  <span class="biaoti">
+                      {{if item.hotFlag ==1}}
+                      <img src="images/hot.png">
+                      {{/if}}
+                      {{if item.recommendFlag==1}}
+                      <img src="images/tj_@1.png">
+                      {{/if}}{{item.title}}</span>
+                  <p class="h-detailed">
+                    {{item.createTime}}                 
+                  </p>
+                </a>
+              </div>
+              <div class="tianziright card-revatie collect-half" style="padding:.5rem 0 .4rem 0">
+                <a href="#" class="collect-pic" style="max-height: 4.825rem;overflow: hidden;">
+                  {{if item.thumbnail == '' || item.thumbnail == null || item.thumbnail== undefined}}
+                  <img src="images/mo2.png">
+                  {{else}}
+                  <img class="h-vifdeoCover" src="{{picurl}}{{item.thumbnail}}"/>
+                  <img class="h-bfBtn" src="images/all_icon_small_Play.png">
+                  {{/if}}
+                  <!-- <img src="{{picurl}}{{item.thumbnail}}" style="width:5rem;">
+                  <img src="images/all_icon_small_Play.png"> -->
+                </a>
+              </div>
+            </li>  
+            {{else if item.postType == 3}}
+            <li class="card h-card h-plaintext" data-id="{{item.id}}" data-postType="{{item.postType}}" style="padding-left: 1.3rem">
+                <i class="collect-check hide"></i>
+                <a href="#" style="width: 47%;margin-left: .5rem">
+                  <div class="mrt75 biaoti">
+                    {{if item.hotFlag ==1}}
+                      <img src="images/hot.png">
+                      {{/if}}
+                      {{if item.recommendFlag==1}}
+                      <img src="images/tj_@1.png">
+                      {{/if}}{{item.title}}</div>
+                  <p class="h-detailed">
+                    {{item.createTime}}
+                  </p>
+                </a>
+            </li>
+            {{else if item.postType == 4}}
+            <li class="card h-card h-plaintext cardFlex" data-id="{{item.id}}" data-postType="{{item.postType}}" style="padding-left: 1.3rem">
+                <i class="collect-check hide"></i>
+                <div class="collect-half" style="width: 47%;margin-left: .5rem">
+                  <a href="#" class="mrt75">
+                    <span class="biaoti">
+                      {{if item.hotFlag ==1}}
+                      <img src="images/hot.png">
+                      {{/if}}
+                      {{if item.recommendFlag==1}}
+                      <img src="images/tj_@1.png">
+                      {{/if}}
+                    {{item.title}}
+                  </span>
+                    <p class="h-detailed">
+                      {{item.createTime}}
+                    </p>
+                  </a>
+                </div>
+                <div class="tianziright collect-half" style="padding:.5rem 0 .4rem 0">
+                  <a href="#" class="collect-pic" style="max-height: 4.825rem;overflow: hidden;">
+                    <!-- <img src="{{picurl}}{{item.imageUrl}}" style="width:5rem;height3.65rem"> -->
+                    {{if item.thumbnail == '' || item.thumbnail == null || item.thumbnail== undefined }}
+                    <img src="images/mo2.png">
+                    {{else}}
+                    <img class="h-rightpic" src="{{picurl}}{{item.thumbnail}}"/>
+                    {{/if}}
+                  </a>
+                </div>
+            </li>
+            {{else if item.postType == 5}}
+            <li class="card h-card h-plaintext cardFlex" data-id="{{item.id}}" data-postType="{{item.postType}}" style="padding-left: 1.3rem">
+              <i class="collect-check hide"></i>
+              <div class="collect-half" style="width: 47%;margin-left: .5rem">                 
+                <a href="#" class="mrt75">
+                  <span class="biaoti">
+                      {{if item.hotFlag ==1}}
+                      <img src="images/hot.png">
+                      {{/if}}
+                      {{if item.recommendFlag==1}}
+                      <img src="images/tj_@1.png">
+                      {{/if}}{{item.title}}</span>
+                  <p class="h-detailed">
+                    {{item.createTime}}                 
+                  </p>
+                </a>
+              </div>
+              <div class="tianziright card-revatie collect-half" style="padding:.5rem 0 .4rem 0">
+                <a href="#" class="collect-pic" style="max-height: 4.825rem;overflow: hidden;">
+                  {{if item.thumbnail == '' || item.thumbnail == null || item.thumbnail== undefined}}
+                  <img src="images/mo2.png">
+                  {{else}}
+                  <img class="h-vifdeoCover" src="{{picurl}}{{item.thumbnail}}"/>
+                  <img class="h-bfBtn" src="images/all_icon_small_Play.png">
+                  {{/if}}
+                  <!-- <img src="{{picurl}}{{item.thumbnail}}" style="width:5rem;">
+                  <img src="images/all_icon_small_Play.png"> -->
+                </a>
+              </div>
+            </li>  
+        {{/if}}  
+        <div class="concern-divider"></div>
+        {{/each}}
+  </script>
+  <script type="text/javascript" data-main="js/collect.js" src="js/lib/require.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html class="resethtml">
+   <head>
+      <meta charset="utf-8">
+      <title>个人</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+      <meta name="apple-mobile-web-app-capable" content="yes">
+      <meta name="apple-mobile-web-app-status-bar-style" content="black">
+      <link rel="stylesheet" type="text/css" href="css/sm.min.css" /> 
+      <link rel="stylesheet" type="text/css" href="css/all_list.css" /> 
+      <style type="text/css">
+          .login-screen, .popup{height: auto;bottom:0;top:auto;padding:0;margin:0;}
+          .sexcont div{height:2.5rem;border-top: 1px solid #e7e7e7}
+          .male,.female{display:flex;justify-content:center;align-items: center;}
+          .male.e5,.female.e5{background: #e5e5e5}
+          .sexcancel,.sexsure{display:flex;justify-content:center;align-items: center;}
+          .saveedit{position: absolute;right: 1rem;height: 2.2rem;line-height: 2.2rem;color: #fff;font-size: .8rem;}
+        .liji{position: absolute;right:0.75rem;bottom:0.75rem;color:#c47231;font-weight: 500}
+        .hide{display: none;}
+      </style>
+   </head>
+   <body class="person">
+       <div class="page-group">
+           <div class="page page-current" id="page-infinite-scroll-bottom">
+              <div class="content">
+                  <div class="list-block list-block-edit">
+                     <div class="p-set" style="position: absolute;right:0.5rem;z-index: 999;">
+                        <img src="images/personal_icon_setting.png" class="p-nicheng">
+                        <div>设置</div>
+                      </div>
+                      <ul class="editul" id="person">
+                        
+                      </ul>
+                    </div>               
+              </div>
+           </div>
+       </div>
+       <script type="text/html" id="personTpl">
+         {{if data.token == ""}}
+               <li class="item-content item-link item-content-edit touxiang" style="height:10.7rem;display:block;margin:0;background: linear-gradient(45deg,#ffde7b,#fed322);border:0;position: relative">
+                  <div class="p-set" style="display: none">
+                    <img src="images/personal_icon_setting.png" class="p-nicheng">
+                    <div>&nbsp;&nbsp;设置</div>
+                  </div>
+                <!--walker--> 
+                  <span class="liji">立即登录</span> 
+                  <div class="item-inner item-inner-edit" id="p-toedit" style="padding-top:4.45rem;padding-left:1.95rem;right:.825rem;background: none">
+                    <div class="item-after item-after-edit edit-touxiangicon" style="background: url({{picurl}}{{data.avatar}})  no-repeat;border-radius: 50%;background-size: 100% 100%;">
+                      <!-- <img src="images/quanzi.png" class="img_wrap"> -->
+                    </div>
+                    <div class="p-ml5">
+                        <div style="font-size:.75rem;color:#323232">{{data.name}}
+                          <!-- {{if data.sex == 1}}
+                          <img src="images/all_icon_Male.png" style="margin-left:.5rem;display: -webkit-inline-box;width:.65rem;"/>
+                          {{/if}}
+                          {{if data.sex == 2}}
+                          <img src="images/all_icon_Female.png" style="margin-left:.5rem;display: -webkit-inline-box;width:.65rem;"/>
+                          {{/if}} -->
+                        </div>
+                        <div class="p-font5" style="font-size:.65rem;color:#808080">                   
+                           ID:{{data.userId}}
+                        </div>
+                    </div>
+                  </div>
+              </li>
+              {{else}}
+              <li class="item-content item-link item-content-edit touxiang" style="height:10.7rem;display:block;margin:0;background: linear-gradient(45deg,#ffde7b,#fed322);border:0;position: relative">
+                  <div class="p-set" style="display: none">
+                    <img src="images/personal_icon_setting.png" class="p-nicheng">
+                    <div>&nbsp;&nbsp;设置</div>
+                  </div>
+                <!--walker-->
+                  <div class="item-inner item-inner-edit" id="p-toedit" style="padding-top:4.45rem;padding-left:1.95rem;right:.825rem;background: none">
+                    <div class="item-after item-after-edit edit-touxiangicon" style="background: url({{picurl}}{{data.avatar}})  no-repeat;border-radius: 50%;background-size: 100% 100%;">
+                      <!-- <img src="images/quanzi.png" class="img_wrap"> -->
+                    </div>
+                    <div class="p-ml5">
+                        <div style="font-size:.75rem;color:#323232">{{data.name}}
+                          {{if data.sex == 1}}
+                          <img src="images/all_icon_Male.png" style="margin-left:.5rem;display: -webkit-inline-box;width:.65rem;"/>
+                          {{/if}}
+                          {{if data.sex == 2}}
+                          <img src="images/all_icon_Female.png" style="margin-left:.5rem;display: -webkit-inline-box;width:.65rem;"/>
+                          {{/if}}
+                        </div>
+                        <div class="p-font5" style="font-size:.65rem;color:#808080">                   
+                           ID:{{data.userId}}
+                        </div>
+                    </div>
+                  </div>
+              </li>
+         {{/if}}
+            <li class="item-content item-link item-content-edit xingmingli bordermnone" style="padding: 0 .5rem;
+    margin: 0;">  
+              <div class="item-inner item-inner-edit edit-column item-inner-editnone p-concern padtpn40">
+                  <div class="item-after item-after-edit edit-touxiangicon" style="width: 2.5rem;
+    height:2.25rem;margin-left:0">
+                    <img src="images/gz_@1.png" class="img_wrap">
+                  </div>
+                  <div class="item-title" style="margin-top: .25rem;color: #323232;font-size: .7rem;">关注</div>
+              </div>
+              <div class="item-inner item-inner-edit edit-column item-inner-editnone p-release padtpn40">
+                <div class="item-after item-after-edit edit-touxiangicon" style="width: 2.5rem;
+    height:2.25rem;margin-left:0">
+                  <img src="images/fb@1x.png" class="img_wrap">
+                </div>
+                <div class="item-title" style="margin-top: .25rem;color: #323232;font-size: .7rem;">发布</div>
+              </div>
+              <div class="item-inner item-inner-edit edit-column item-inner-editnone p-collect padtpn40">
+                <div class="item-after item-after-edit edit-touxiangicon" style="width:2.5rem;
+    height:2.25rem;margin-left:0">
+                  <img src="images/sc@1x.png" class="img_wrap">
+                </div>
+                <div class="item-title" style="margin-top: .25rem;color: #323232;font-size: .7rem;">收藏</div>
+              </div>
+              <div class="item-inner item-inner-edit edit-column item-inner-editnone p-message padtpn40">
+                <div class="item-after item-after-edit edit-touxiangicon" style="width:2.5rem;
+    height:2.25rem;margin-left:0">
+                  <img src="images/xx@1x.png" class="img_wrap">
+                </div>
+                <div class="item-title" style="margin-top: .25rem;color: #323232;font-size: .7rem;">消息</div>
+              </div>
+            </li>
+            
+            
+            <div class="edit-divider"></div>
+            <li class="item-content item-link item-content-edit telli p-record" style="margin-left: 1rem;margin-right: 0;padding-right: .825rem;">
+              <div class="item-inner item-inner-edit ">
+                <div class="item-title" style="font-size:.75rem;color:#323232">浏览记录</div>
+              </div>
+            </li>
+            <!-- <li class="item-content item-link item-content-edit shenfenli p-offline hide" style="margin-left: 1rem;margin-right: 0;padding-right: .825rem;">
+              <div class="item-inner item-inner-edit">
+                <div class="item-title" style="font-size:.75rem;color:#323232">离线下载</div>
+              </div>
+            </li> -->
+            <li class="item-content item-link item-content-edit shenfenli p-fankui hide" style="margin-left: 1rem;margin-right: 0;padding-right: .825rem;border-bottom:0;">
+              <div class="item-inner item-inner-edit">
+                <div class="item-title" style="font-size:.75rem;color:#323232">意见反馈</div>
+              </div>
+            </li>
+       </script>
+     <script type="text/javascript" data-main="js/person.js" src="js/lib/require.min.js"></script>   
+   </body>
+</html>

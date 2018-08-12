@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en" class="resethtml">
+<head>
+  <meta charset="UTF-8">
+  <title>首页</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1"/>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <!--<link rel="shortcut icon" href="http://www.suning.com/favicon.ico" type="image/x-icon" />-->
+  <link rel="stylesheet" type="text/css" href="css/sm.min.css"/>
+  <link rel="stylesheet" type="text/css" href="css/all_list.css"/>
+</head>
+<body>
+  <div class="page-group">
+    <div id="page-ptr" class="page">
+      <header class="bar bar-nav bar-alllist">
+          <div class="backdiv"><a class="icon icon-left pull-left icon-alllist"></a></div>
+          <h1 class="title lgtitle">我的发布</h1>
+      </header>
+      <style>
+        .buttons-tab .button.active{
+          color:#5c5c5c;
+          font-weight: bold;
+        }
+      </style>
+      <div class="content pull-to-refresh-content " style="top:0">
+        <div class="pull-to-refresh-layer">
+            <div class="preloader"></div>
+            <div class="pull-to-refresh-arrow"></div>
+        </div>
+        <div class="buttons-tab" style="z-index:9999">
+          <a href="#tab1" class="tab-link active button tiezi" style="padding-top:0.4rem">帖子</a>
+          <a href="#tab2" class="tab-link button tupian" style="padding-top:0.4rem">图片</a>
+          <a href="#tab3" class="tab-link button shipin" style="padding-top:0.4rem">视频</a>
+        </div>
+        <div class="tabs">
+          <div id="tab1" class="tab active  infinite-scroll">
+            
+                <!-- 下面是正文 -->
+                <div class="card-container mrt14" id="release-wenzi">
+                  <!-- 帖子模板内容 -->
+                </div>
+                <!-- 下面是正文 -->
+                <div class="infinite-scroll-preloader hide">
+                    <div class="preloader"></div>
+                </div>
+                <img class="mypreloader hide" src="images/end.png">
+               
+          </div>
+          <div id="tab2" class="tab infinite-scroll">
+            <div class="content-block release-pic-block" id="release-pic">
+                    <!--文字加图片start-->
+                    <!-- 模板内容 -->
+                    <!--文字加图片end-->
+            </div>
+            <div class="infinite-scroll-preloader hide">
+                <div class="preloader"></div>
+            </div>
+            <img class="mypreloader hide" src="images/end.png">
+          </div>
+          <div id="tab3" class="tab infinite-scroll">
+            <div class="content-block release-pic-block" id="release-shipin">
+              <!--视频加文字start-->
+                  <!-- 视频模板 -->
+              <!--视频加文字end-->
+            </div>
+            <div class="infinite-scroll-preloader hide">
+                <div class="preloader"></div>
+            </div>
+            <img class="mypreloader hide" src="images/end.png">
+          </div>
+        </div>
+
+      </div>
+     
+    </div>
+  </div>
+  <script type="text/html" id="release-wenziTpl">
+    {{each data as item index}}
+    <div class="card h-card">
+      <div class="card-content card-contentadd" data-id="{{item.id}}">
+          <div class="card h-card h-plaintext" data-id="{{item.id}}">
+            <a href="videoDetails.html?id={{item.id}}&postType={{item.postType}}">
+              <div class="mrt75">{{item.title}}</div>
+              <p class="h-detailed">
+                {{item.createTime}}
+              </p>
+            </a>
+          </div>
+          <div class="release-cancel" style="height:3.28rem;line-height:3.28rem">删除</div>            
+       </div>
+    </div>
+    <div class="edit-divider"></div>
+    {{/each}}
+  </script>
+  <script type="text/html" id="release-picTpl">
+    {{each data as item index}}
+      <div style="position: relative;overflow: hidden;">
+      <div class="re-list" data-id="{{item.id}}" data-memberId="{{item.memberId}}" data-postType="{{item.postType}}">
+              <div class="card h-card h-plaintext cardFlex">
+                  <div class="collect-half">
+                    <a href="#" class="mrt75">
+                      <span class="biaoti">{{item.title}}</span>
+                      <p class="h-detailed">
+                        {{item.description}}
+                      </p>
+                    </a>
+                  </div>
+                  <div class="tianziright collect-half">
+                        <a href="#" class="collect-pic" style="max-height: 4.825rem;overflow: hidden;">
+                          {{if item.thumbnail == '' || item.thumbnail == null || item.thumbnail== undefined }}
+                          <img src="images/mo2.png">
+                          {{else}}
+                          <img class="h-rightpic" src="{{picurl}}{{item.thumbnail}}"/>
+                          {{/if}}
+                          <!-- <img src="{{picurl}}{{item.imageUrl | getPicture}}" style="width:5rem;height3.65rem"/> -->
+                      </a>
+                  </div>
+              </div>
+          </div>
+          <div class="release-cancel" style="height: 5.825rem;line-height: 5.825rem;">删除</div> 
+      </div>
+      <div class="edit-divider"></div>
+      {{/each}}
+  </script>
+  <script type="text/html" id="release-shipinTpl">
+   {{each data as item index}}
+   <div style="position:relative;overflow: hidden;">
+      <div class="re-list" data-id="{{item.id}}" data-memberId="{{item.memberId}}" data-postType="{{item.postType}}">
+          <div class="card h-card h-plaintext cardFlex">
+              <div class="collect-half">                 
+                <a href="#" class="mrt75">
+                  <span class="biaoti">{{item.title}}</span>
+                  <p class="h-detailed">
+                    {{item.description}}                  
+                  </p>
+                </a>
+              </div>
+              <div class="tianziright card-revatie collect-half" style="padding:.5rem 0 .4rem 0">
+                <a href="#" class="collect-pic" style="max-height: 4.825rem;overflow: hidden;">
+                  <!-- <img src="{{picurl}}{{item.videoCover}}" style="width:5rem;"/>
+                  <img src="images/detail.png"> -->
+                   {{if item.thumbnail == '' || item.thumbnail == null || item.thumbnail== undefined}}
+                    <img src="images/mo2.png">
+                    {{else}}
+                    <img class="h-vifdeoCover" src="{{picurl}}{{item.thumbnail}}"/>
+                    <img class="h-bfBtn" src="images/all_icon_small_Play.png">
+                    {{/if}}
+                </a>
+              </div>
+          </div>
+      </div>
+      <div class="release-cancel" style="height: 5.825rem;line-height: 5.825rem;">删除</div> 
+    </div>
+    <div class="edit-divider"></div>
+    {{/each}}
+  </script>
+  <script type="text/javascript" data-main="js/release.js" src="js/lib/require.min.js"></script>
+</body>
+</html>

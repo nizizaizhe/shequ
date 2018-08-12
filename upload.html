@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" id="shangchuan" class="resethtml">
+<head>
+  <meta charset="UTF-8">
+  <title>上传</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1"/>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <link rel="stylesheet" type="text/css" href="css/sm.min.css"/>
+  <link rel="stylesheet" type="text/css" href="css/all_list.css"/>
+</head>
+<body style="background: transparent;">
+  <div style="background: gray;opacity: .9;position: absolute;width: 100%;height:100%;z-index:99;"></div> 
+  <div class="" id="aini" style="position: absolute;width: 100%;bottom: 4rem;z-index: 999;">
+     <!--  <div style="background: transparent;height:100%"> -->
+            <div class="up-tiezi">
+              <img src="./images/tz@3x.png">
+            </div>
+            <div class="up-cont">
+                <div class="up-tupian">
+                  <img src="./images/tp@3x.png">
+                </div>
+                <div class="up-shipin">
+                  <img src="./images/sp@3x.png">
+                </div>
+            </div>
+            <div class="up-close"></div>
+   <!--    </div> -->
+  </div>  
+<!-- <script type="text/javascript" src="js/lib/Zepto.min.js"></script> 
+<script type="text/javascript" src="js/lib/animate.js"></script>  -->
+<script type="text/javascript" src="js/lib/dsbridge.js"></script>   
+<script type="text/javascript">
+            // document.querySelector(".up-tiezi").addEventListener("click",function(){
+                
+            //         window.location.href = "toRelease.html?postType=3&&show=text";
+               
+            // });
+            // document.querySelector(".up-tupian").addEventListener("click",function(){
+               
+            //         window.location.href = "toReleasePic.html?postType=1";
+                
+            // });
+            // document.querySelector(".up-shipin").addEventListener("click",function(){
+               
+            //         window.location.href = "toReleasePic.html?postType=2";
+                
+            // });
+    //$("#aini").fadeIn(6000);
+    dsBridge.call("compose.getUserInfo",{},function(data){
+          if(data.memberid==""||data.memberid==null||data.memberid=="null"||data.memberid==undefined||data.memberid=="undefined"){
+              data.memberid = "";
+          }
+          if(data.userId==""||data.userId==null||data.userId=="null"||data.userId==undefined||data.userId=="undefined"){
+              data.userId="";
+          }
+          if(data.token==""||data.token==null||data.token=="null"||data.token==undefined||data.token=="undefined"){
+              data.token="";
+          }
+          localStorage.setItem('memberId',data.memberid);
+          localStorage.setItem('userId',data.userId);
+          localStorage.setItem('token',data.token);
+          sessionStorage.setItem('fromPage',"compose");
+
+          sessionStorage.setItem("sendTitle","");
+          sessionStorage.setItem("sendCont","");
+          sessionStorage.setItem("choosePic","");
+          sessionStorage.setItem("chooseV","");
+            var islogin = localStorage.getItem("token");
+            document.querySelector(".up-tiezi").addEventListener("click",function(){
+                if(islogin==""){
+                    window.location.href = "login.html?upload=1";
+                }else{
+                    window.location.href = "toRelease.html?postType=3&&show=text";
+                }
+            });
+            document.querySelector(".up-tupian").addEventListener("click",function(){
+                if(islogin==""){
+                    window.location.href = "login.html?upload=1";
+                }else{
+                    window.location.href = "toReleasePic.html?postType=1";
+                }
+            });
+            document.querySelector(".up-shipin").addEventListener("click",function(){
+                if(islogin==""){
+                    window.location.href = "login.html?upload=1";
+                }else{
+                    window.location.href = "toReleasePic.html?postType=2";
+                }
+            });
+            document.querySelector(".up-close").addEventListener("click",function(){
+               sessionStorage.setItem("sendCont","");
+               sessionStorage.setItem("choosePic","");
+               callProgress();
+               //$("#aini").fadeIn(6000);
+               // var tt = setTimeout(function(){
+               //     callProgress();
+               //     clearTimeout(tt);
+               // },6000);
+            });
+            function callProgress() {
+                dsBridge.call("compose.closeComposeControllerFromJS","compose.closeComposeControllerFromJS",function(data){
+                })
+            }
+      });
+</script>
+</body>
+</html>

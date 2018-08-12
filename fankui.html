@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html class="resethtml">
+   <head>
+      <meta charset="utf-8">
+      <title>意见反馈</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+      <meta name="apple-mobile-web-app-capable" content="yes">
+      <meta name="apple-mobile-web-app-status-bar-style" content="black">
+      <link rel="stylesheet" type="text/css" href="css/sm.min.css" /> 
+      <link rel="stylesheet" type="text/css" href="css/all_list.css" /> 
+   </head>
+   <body>
+       <div class="page-group">
+           <div class="page page-current" id="page-fixed-tab-infinite-scroll">
+           <!-- 你的html代码 -->
+              <header class="bar bar-nav bar-alllist">
+                  <div class="backdiv"><a class="icon icon-left pull-left icon-alllist"></a></div>
+                  <h1 class="title lgtitle">意见反馈</h1>
+              </header>
+              <div class="buttons-tab" style="z-index:9999;margin-top:3.2rem">
+                <a href="#tab1" class="tab-link active button fankui">反馈</a>
+                <a href="#tab2" class="tab-link button jilu">记录</a>
+              </div>
+              <div class="tabs">
+                  <div id="tab1" class="tab active">
+                      <div class="content content-withdw infinite-scroll fankuitab"  style="top:2.2rem;">
+                          <!-- 默认的下拉刷新层 -->
+                          <div class="pull-to-refresh-layer">
+                              <div class="suijicont suijicont0 hide"></div>
+                              <div class="suijicont suijicont1 hide"></div>
+                              <div class="suijicont suijicont2 hide"></div>
+                              <div class="suijicont suijicont3 hide"></div>
+                              <div class="suijicont suijicont4 hide"></div>
+                              <div class="suijicont suijicont5 hide"></div>
+                              <div class="suijicont suijicont6 hide"></div>
+                              <div class="preloader"></div>
+                              <div class="pull-to-refresh-arrow"></div>
+                          </div>
+                          <!-- 内容主题 -->
+                          <div class="">
+                              <div class="list-block list-block-alllist">
+                                    <ul class="withdw-ul" id="withdw-ul">
+                                          <div class="fankui-cont">
+                                              <textarea class="fankui-area" placeholder="输入内容..."> </textarea>
+                                              <div class="fankui-picup">
+                                                <input id="upload" multiple="multiple" type="file" name="" style="width: 4rem;height: 3rem;position: relative;z-index: 2;margin-top: -1rem;"/>
+                                                <img src="images/write_icon_addphoto.png" style="position:absolute;left:0;top: 0;z-index: 1"/>
+                                                <img src="images/personal_icon_plus.png" class="fankuipic hide"/>
+                                                <img src="images/personal_icon_plus.png" class="fankuipic hide"/>
+                                                <img src="images/personal_icon_plus.png" class="fankuipic hide"/>
+                                                <img src="images/personal_icon_plus.png" class="fankuipic hide"/>
+                                                <img src="images/personal_icon_plus.png" class="fankuipic hide"/>
+                                                <img src="images/personal_icon_plus.png" class="fankuipic hide"/>
+                                                <img src="images/personal_icon_plus.png" class="fankuipic hide"/>
+                                                <img src="images/personal_icon_plus.png" class="fankuipic hide"/>
+                                              </div>
+                                              <!-- <div class="yulanpic"></div> -->
+                                          </div>
+                                          <div class="quit" style="background:whitesmoke;margin-top:0;padding:1rem 0">
+                                                <div class="quittxt">提交</div>
+                                          </div>
+                                    </ul>
+                              </div>
+                          </div>
+                          <!-- 加载提示符 -->
+                          <div class="infinite-scroll-preloader hide">
+                              <div class="preloader"></div>
+                          </div>
+                      </div>
+                    </div>
+                    <!-- tab1 -->
+                    <div id="tab2" class="tab">
+                       <div class="content pull-to-refresh-content content-withdw  jilutab infinite-scroll"style="top:2.2rem;bottom:2rem">
+                          <!-- 默认的下拉刷新层 -->
+                          <div class="pull-to-refresh-layer">
+                              <div class="suijicont suijicont0 hide"></div>
+                              <div class="suijicont suijicont1 hide"></div>
+                              <div class="suijicont suijicont2 hide"></div>
+                              <div class="suijicont suijicont3 hide"></div>
+                              <div class="suijicont suijicont4 hide"></div>
+                              <div class="suijicont suijicont5 hide"></div>
+                              <div class="suijicont suijicont6 hide"></div>
+                              <div class="preloader"></div>
+                              <div class="pull-to-refresh-arrow"></div>
+                          </div>
+                          <!-- 内容主题 -->
+                          <div class="">
+                              <div class="list-block list-block-alllist">
+                                    <ul class="withdw-ul" id="withdw-ul2">
+                                        
+                                    </ul>
+                              </div>
+                          </div>
+                          <!-- 加载提示符 -->
+                           <div class="infinite-scroll-preloader hide">
+                              <div class="preloader"></div>
+                          </div>
+                          <img class="mypreloader hide" src="images/end.png">
+                      </div>
+                    </div>
+                    <!-- tab2 -->
+                  </div>  
+           </div>
+       </div>
+    <script type="text/html" id="withdw-ulTpl2">
+         {{each data as item index}}
+          <li class="card h-card" data-id="{{item.id}}">
+            <div class="card-content card-contentadd">
+              <!-- 纯文字start -->
+              <div class="card h-card h-plaintext">
+                <a href="#">
+                  <div class="mrt75">{{item.content}}</div>
+                  <p class="h-detailed">
+                    {{item.createTime}}
+                  </p>
+                </a>
+              </div>
+              <!-- 纯文字end -->
+            </div>
+          </li>
+          <div class="edit-divider"></div>
+          {{/each}}    
+    </script>
+    <script type="text/html" id="withdwkong2-ulTpl2">
+        <div class="message-nolist">
+          <div class="message-noicon"></div>
+          <div>暂无反馈记录</div>
+        </div>
+    </script>
+     <script type="text/javascript" data-main="js/fankui.js" src="js/lib/require.min.js"></script>  
+   </body>
+</html>

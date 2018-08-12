@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html class="resethtml">
+   <head>
+      <meta charset="utf-8">
+      <title>个人中心</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+      <meta name="apple-mobile-web-app-capable" content="yes">
+      <meta name="apple-mobile-web-app-status-bar-style" content="black">
+      <link rel="stylesheet" type="text/css" href="css/sm.min.css" /> 
+      <link rel="stylesheet" type="text/css" href="css/all_list.css" /> 
+      <style type="text/css">
+          .login-screen, .popup{height: auto;bottom:2rem;top:auto;padding:0;margin:0;}
+          .sexcont div{height:2.5rem;border-top: 1px solid #e7e7e7}
+          .male,.female{display:flex;justify-content:center;align-items: center;}
+          .male.e5,.female.e5{background: #e5e5e5}
+          .sexcancel,.sexsure{display:flex;justify-content:center;align-items: center;}
+          .saveedit{position: absolute;right: 1rem;height: 2.2rem;line-height: 2.2rem;color: #323232;font-size: .75rem;}
+      </style>
+   </head>
+   <body class="editbody">
+       <div class="page-group">
+           <div class="page page-current" id="page-infinite-scroll-bottom">
+           <!-- 你的html代码 -->
+              <header class="bar bar-nav bar-alllist">
+                  <div class="backdiv"><a class="icon icon-left pull-left icon-alllist"></a></div>
+                  <h1 class="title lgtitle">个人中心</h1>
+                  <div class="saveedit">保存</div>
+              </header>
+              <div class="content">
+                  <!-- 内容主题 -->
+                  <div class="list-block list-block-edit">
+                      <ul class="editul" id="editul">
+                        
+                      </ul>
+                    </div>               
+              </div>
+           </div>
+            <div class="popup popup-about">
+                <div class="sexcont">
+                   <div class="row">
+                      <div class="col-50 sexcancel">取消</div>
+                      <div class="col-50 sexsure">确认</div>
+                    </div>
+                  <div class="male">男</div>
+                  <div class="female">女</div>
+                </div>
+            </div>
+       </div>
+       <script type="text/html" id="editulTpl">        
+           <li class="item-content item-link item-content-edit touxiang">
+              <div class="item-media"><i class="icon icon-f7"></i></div>
+              <div class="item-inner item-inner-edit">
+                <div class="item-title">头像</div>
+                <div class="item-after item-after-edit edit-touxiangicon" style="background: url({{picurl}}{{data.avatar}})  no-repeat;border-radius: 50%;background-size: 100% 100%;">
+                  <!-- <img src="{{picurl}}{{data.avatar}}" class="img_wrap"> -->
+                </div>
+              </div>
+            </li>
+            <li class="item-content item-link item-content-edit nichengli">
+              <div class="item-media"><i class="icon icon-f7"></i></div>
+              <div class="item-inner item-inner-edit">
+                <div class="item-title">昵称</div>
+                <div class="item-after item-after-edit nichengtxt">{{data.name}}</div>
+              </div>
+            </li>
+            <li class="item-content item-link item-content-edit IDli">
+              <div class="item-media"><i class="icon icon-f7"></i></div>
+              <div class="item-inner item-inner-edit" style="background:none">
+                <div class="item-title">ID</div>
+                <div class="item-after item-after-edit IDtxt">{{data.userId}}</div>
+              </div>
+            </li>
+            <li class="item-content item-link item-content-edit bordernone choosesex">
+              <div class="item-media"><i class="icon icon-f7"></i></div>
+              <div class="item-inner item-inner-edit">
+                <div class="item-title">性别</div>
+                {{if data.sex == 2}}
+                <div class="item-after item-after-edit xingbie">女</div>
+                    {{else}}
+                    <div class="item-after item-after-edit xingbie">男</div>
+                {{/if}}
+              </div>
+            </li>
+            <div class="edit-divider"></div>
+       </script>
+     <script type="text/javascript" data-main="js/edit.js" src="js/lib/require.min.js"></script>  
+   </body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title>发布内容</title>
+      <META HTTP-EQUIV="pragma" CONTENT="no-cache"> 
+      <META HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate"> 
+
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+      <meta name="apple-mobile-web-app-capable" content="yes">
+      <meta name="apple-mobile-web-app-status-bar-style" content="black">
+      <link rel="stylesheet" type="text/css" href="css/sm.min.css" /> 
+      <link rel="stylesheet" type="text/css" href="css/all_list.css" /> 
+   </head>
+   <body>
+      <div class="page-group">
+        <div class="page page-current" id="page-fixed-tab-infinite-scroll">
+              <header class="bar bar-nav bar-alllist">
+                  <div class="backdiv"><a class="icon icon-left pull-left icon-alllist"></a></div>
+                  <h1 class="title lgtitle">发布内容</h1>
+                  <a id="fabu" href="javascript:;" style="color:#323232;font-size:.625rem;z-index:30">发布</a>
+              </header>
+             <!-- 带图片的帖子 -->
+              <div class="content content-withdw" style="bottom:2rem">
+                  <div class="toRel-title">
+                      <div class="toRel-titlecont" style="display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 1;overflow: hidden;word-wrap: break-word;"></div>
+                  </div>
+                  <div class="toRel-area">
+                      <div class="toRel-areacont" style="display: block;overflow: hidden;word-wrap: break-word;"></div>
+                      <div class="toRel-uppic hide" id="addPic">
+                         <!-- <div class="toRel-uppicbg">
+                          <img src="">
+                         </div>  -->                                          
+                      </div>
+                      
+                      <!-- shipin -->
+                      <div class="toRel-upvideo hide" id="addVideo">
+                         <!-- <div class="toRel-upvideobg">
+                           <img src="">
+                         </div>  -->                                        
+                      </div>       
+                  </div>
+              </div>
+              <!-- <div class="toRel-niming"></div> -->
+              <div class="pro hide">
+                  <p class="jindu">内容正在上传<span id="progress">0%</span></p>
+                  <div class="h-detailed offline-jindu" style="height: .4rem;width: 80%;margin:0 auto">
+                      <div class="offline-jindu offline-jinduing"></div>    
+                  </div>
+              </div>
+              <div class="toRel-bottom" style="justify-content:center">               
+                  <div class="toRel-bottom1 hide" style="margin-left:0"></div>
+                  <div class="toRel-bottom2 hide" style="margin-right:0"></div>
+              </div>
+         </div>
+      </div>
+     <script type="text/javascript" data-main="js/toReleaseFinish.js" src="js/lib/require.min.js"></script>  
+   </body>
+</html>

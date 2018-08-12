@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html class="resethtml">
+   <head>
+      <meta charset="utf-8">
+      <title>通知详情</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+      <meta name="apple-mobile-web-app-capable" content="yes">
+      <meta name="apple-mobile-web-app-status-bar-style" content="black">
+      <link rel="stylesheet" type="text/css" href="css/sm.min.css" /> 
+      <link rel="stylesheet" type="text/css" href="css/all_list.css" /> 
+   </head>
+   <body>
+       <div class="page-group">
+           <div class="page page-current" id="page-fixed-tab-infinite-scroll">
+           <!-- 你的html代码 -->
+              <header class="bar bar-nav bar-alllist">
+                  <div class="backdiv"><a class="icon icon-left pull-left icon-alllist"></a></div>
+                  <h1 class="title lgtitle">通知详情</h1>
+              </header>
+              <div class="content">
+                
+              </div>
+            </div>  
+        </div>  
+        <script type="text/html" id="tongzhiDetailTpl">
+            <div class="tongzhi-title" style="font-size: 0.9rem;color:#555;">{{data.noticeTitle}}</div>
+                <div class="tongzhi-cont" style="font-size:0.65rem;color:#808080;text-indent:2em;">{{data.noticeContent}}
+                </div>
+            <div class="tongzhi-time">{{data.createTime}}</div>
+        </script>  
+     <script type="text/javascript" data-main="js/tongzhiDetail.js" src="js/lib/require.min.js"></script>  
+   </body>
+</html>

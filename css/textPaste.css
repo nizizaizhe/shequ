@@ -1,0 +1,123 @@
+.pic-title{
+  background: #fed322;
+}
+.c-plaintext  {
+  width: 100%;
+  /*height: 9.75rem;*/
+
+  margin-top: 0.6rem;
+}
+.bar.pasteBar{
+  height:3.2rem;
+  padding-top:1rem;
+  background: #fed322;
+}
+.c-plaintext  a {
+  display: block;
+}
+.content-group {
+  width: 100%;
+  height: 7.6rem;
+  border-bottom: 1px solid #e6e6e6;
+  padding: 0 0.5rem 0 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  background: #fff;
+}
+.left-content {
+  padding-top: 0.75rem;
+}
+.nickname img {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+.nickname-header {
+  display: inline-block;
+}
+.nickname-header span {
+  font-size: 0.57rem;
+  color: #323232;
+}
+.nickname-header img {
+  width: 0.75rem;
+  height: 0.75rem;
+  vertical-align: middle;
+}
+.before {
+  font-size: 0.4rem;
+  color: #808080;
+}
+.c-title img {
+  width: 0.8rem;
+  height: 0.55rem;
+}
+.c-title span {
+  font-size: 0.675rem;
+  color: #323232;
+}
+.post-text {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  font-size: 0.57rem;
+  color: #808080;
+}
+.icon-group {
+  padding-right: 0.75rem;
+  height: 2.15rem;
+  line-height: 2.15rem;
+  background: #fff;
+}
+.icon-group .iconRight {
+  float: right;
+}
+.icon-group .iconRight div {
+  display: inline-block;
+}
+.reply, .collection, .fabulous {
+  position: relative;
+}
+.reply img, .collection img, .fabulous img {
+  width: 0.7rem;
+  height: 0.7rem;
+  position: absolute;
+  top: 50%;
+  left: -1rem;
+  transform: translateY(-50%);
+}
+.iconRight span, .iconRight span {
+  font-size: 0.65rem;
+  color: #888888;
+}
+.reply, .collection {
+  margin-left: 1.1rem;
+}
+.text-video-content .right-content {
+  position: relative;
+}
+.right-content {
+  padding-top: 1.95rem;
+}
+.right-content img {
+  width: 6.5rem;
+  height: 4.65rem;
+}
+.text-video-content .right-content img:nth-child(2) {
+  width: 1.15rem;
+  height: 1.15rem;
+  position: absolute;
+  top: 58%;
+  left: 38%;
+  transform: translateY(-50%);
+}
+.back img{
+  width:0.625rem;
+  height:1rem;
+}
+
+.back{
+  display: inline-block;
+  width:2rem;
+  height:2rem;
+}

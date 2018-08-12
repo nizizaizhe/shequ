@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>所有圈子</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1"/>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <!--<link rel="shortcut icon" href="http://www.suning.com/favicon.ico" type="image/x-icon" />-->
+  <link rel="stylesheet" type="text/css" href="css/sm.min.css"/>
+  <link rel="stylesheet" type="text/css" href="css/allcircles.css"/>
+</head>
+<body>
+  <div class="page-group">
+    <div id="page-tab" class="page c-page">
+      <header class="bar bar-nav circlehead">
+      <a href="javascript:;" class="button button-link button-nav pull-left back fanhui" onClick="javascript:history.go(-1);">
+        <span class="icon icon-left iconleft" style="padding:0.5rem;"><img src="images/all_icon_Back.png"></span>
+      </a>
+      <h1 class="title circletitle">所有圈子</h1>
+    </header>
+      
+      <div>
+        <div class="Slide ">
+          <div class="buttons-tab nav buttonstab">
+          
+          </div>
+        </div>
+        <div class="tabs ">
+          <div id="tab2" class="content roll-container tab active infinite-scroll pull-to-refresh-content" data-distance="100" >
+            <div class="pull-to-refresh-layer">
+              <div class="preloader"></div>
+              <div class="pull-to-refresh-arrow"></div>
+            </div>
+            <div class="circleList ">
+            
+            </div>
+          
+            <!-- 加载提示符 -->
+            <div class="infinite-scroll-preloader hide">
+              <div class="preloader"></div>
+            </div>
+            <img class="mypreloader hide" src="images/end.png">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/html" id="allCirclesTpl">
+        <div id="allcircles" class="card-container wordList">
+          {{each data as item index}}
+          <div class="contentBlock ">
+            <!--<a href="listofCircles.html?id={{item.id}}&followFlag={{item.followFlag}}&circleName={{item.qzName}}">-->
+              <div class="recommendedlist">
+                <div class="circle-head">
+                  <img src="{{picurl}}{{item.logo}}">
+                </div>
+                <div class="middle-content" data-id={{item.id}}  followFlag='{{item.followFlag}}'  circleName='{{item.qzName}}'>
+                  <div class="circleName">{{item.name}}</div>
+                  <div class="c-summary">{{item.brief}}</div>
+                </div>
+                {{if item.followFlag==0}}
+                <div class="add-attention"><img src="images/add@2x.png"></div>
+                {{else if item.followFlag==1}}
+                <div class="add-attention"><img src="images/tick@2x.png"></div>
+                {{else}}
+                <div class="add-attention">followflag传值错误</div>
+                {{/if}}
+              </div>
+            <!--</a>-->
+
+              <!--<div class="all-line"></div>-->
+          </div>
+          {{/each}}
+        </div>
+</script>
+  <script type="text/html" id="labelPageTpl">
+  {{each data as item index}}
+    <a href="#tab{{index+1}}" class="tab-link button tablink {{index==0?'active':''}}" id="{{item.id}}">{{item.name}}</a>
+  {{/each}}
+  </script>
+</body>
+<script type="text/javascript" data-main="js/allcircles.js" src="js/lib/require.min.js"></script>
+</html>

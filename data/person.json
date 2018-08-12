@@ -1,0 +1,14 @@
+{
+	"data":{
+        "account_id":"account_id",
+        "amount":"amount",
+        "realname":"realname",
+        "work_years":"work_years",
+        "orders_count":"orders_count",
+        "hospital_name":"hospital_name",
+        "info":"info",
+        "nurse_no":"nurse_no"
+    },
+    "msg":"获取成功"
+}
+  

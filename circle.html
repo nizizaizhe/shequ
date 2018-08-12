@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>圈子</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1"/>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <!--<link rel="shortcut icon" href="http://www.suning.com/favicon.ico" type="image/x-icon" />-->
+  <link rel="stylesheet" type="text/css" href="css/sm.min.css"/>
+  <link rel="stylesheet" type="text/css" href="css/circle.css"/>
+</head>
+<body>
+<div class="page-group">
+  <div id="page-ptr" class="page">
+    <header class="circle-header">
+      <span>圈子</span>
+      <a href="search.html"><img src="images/all_icon_Search.png"></a>
+    </header>
+    <div class="content pull-to-refresh-content infinite-scroll  c-content">
+      <div class="pull-to-refresh-layer">
+        <div class="preloader"></div>
+        <div class="pull-to-refresh-arrow"></div>
+      </div>
+      <div class="card-container circle-container">
+        <div class="card c-hrad">
+          
+          <div class="my-circle">
+            <div class="my-circle-title">
+              <span>我的圈子</span>
+              <span><a href="allcircles.html">查看全部</a></span>
+            </div>
+            <div class="shang">
+              
+            </div>
+          </div>
+          <div class="recommend">
+            <div class="recommend-head">
+              <span>推荐圈子</span>
+              <span class="more"><a  href="allcircles.html">更多</a></span>
+            </div>
+            <div class="xia" style="padding-bottom: 2rem;">
+              
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 滚动加载提示符 -->
+      <div class="infinite-scroll-preloader hide">
+        <div class="preloader"></div>
+      </div>
+      <!-- 已经加载到底 -->
+      <img class="mypreloader hide" src="images/end.png" >
+    </div>
+  </div>
+</div>
+<script type="text/html" id="followTpl">
+  {{if data.length > 0}}
+  {{each data as item index}}
+  <!--<a href="listofCircles.html?id={{item.id}}&followFlag={{item.followFlag}}&circleName={{item.qzName}}">-->
+    <div class="recommendedlist if-you">
+      <div class="circle-head">
+        <img src="{{item.logo}}">
+      </div>
+      <div class="middle-content" data-id={{item.id}}   followFlag='{{item.followFlag}}'   circleName='{{item.qzName}}'>
+        <div class="quanname">{{item.name}}</div>
+        <div class="c-summary">{{item.brief}}</div>
+      </div>
+      <!--<div class="add-attention"><img src="images/add@2x.png"></div>-->
+    </div>
+    
+  <!--</a>-->
+  {{/each}}
+  {{else}}
+  <div class="unconcerned">
+    <div>您还没关注的圈子</div>
+    <div>这里有许多值得你关注的圈子</div>
+    <div class="followBtn">
+      {{if token==null || token == '' || token == undefined}}
+      <a href="login.html"><img src="images/go_to_attention@2x.png"></a>
+      {{else}}
+      <a href="allcircles.html"><img src="images/go_to_attention@2x.png"></a>
+      {{/if}}
+    </div>
+  </div>
+  {{/if}}
+</script>
+<script type="text/html" id="tjcircleTpl">
+  {{each data as item index}}
+  <!--<a href="listofCircles.html?id={{item.id}}&followFlag={{item.followFlag}}&circleName={{item.qzName}}">-->
+  <div class="recommendedlist">
+    <div class="circle-head">
+      <img src="{{item.logo}}">
+    </div>
+    <div class="middle-content" data-id={{item.id}}  followFlag='{{item.followFlag}}'  circleName='{{item.qzName}}'>
+      <div class="circleName">{{item.name}}</div>
+      <div class="c-summary">{{item.brief}}</div>
+    </div>
+    {{if item.followFlag==0}}
+    <div class="add-attention"><img src="images/add@2x.png"></div>
+    {{else}}
+    <div class="add-attention"><img src="images/tick@2x.png"></div>
+    {{/if}}
+  </div>
+
+  <!--</a>-->
+  {{/each}}
+
+</script>
+</body>
+<script type="text/javascript" data-main="js/circle.js" src="js/lib/require.min.js"></script>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title>消息中心</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+      <meta name="apple-mobile-web-app-capable" content="yes">
+      <meta name="apple-mobile-web-app-status-bar-style" content="black">
+      <link rel="stylesheet" type="text/css" href="css/sm.min.css" /> 
+      <link rel="stylesheet" type="text/css" href="css/all_list.css" /> 
+   </head>
+   <style>
+     .buttons-tab .button.active{
+     color:#323232;
+       font-weight: bold;
+     }
+     .messtip-r{
+       width:2rem;
+       height:2rem;
+     }
+   </style>
+   <body>
+       <div class="page-group">
+           <div class="page page-current" id="page-fixed-tab-infinite-scroll">
+           <!-- 你的html代码 -->
+              <header class="bar bar-nav bar-alllist">
+                  <div class="backdiv"><a class="icon icon-left pull-left icon-alllist"></a></div>
+                  <h1 class="title lgtitle">消息中心</h1>
+                  <a id="mess-qingkong" href="javascript:;" style="color:#323232;font-size:.625rem;z-index:30">清空</a>
+              </header>
+              <div class="buttons-tab" style="z-index:9999;margin-top:3.2rem">
+                <a href="#tab1" class="tab-link active button xiaoxi">消息</a>
+                <a href="#tab2" class="tab-link button tongzhi">通知</a>
+              </div>
+              <div class="tabs">
+                  <div id="tab1" class="tab active">
+                      <div class="content pull-to-refresh-content content-withdw infinite-scroll infinite-scroll-bottom xiaoxitab" data-ptr-distance="55" data-distance="2" style="top:2.2rem">
+                          <!-- 默认的下拉刷新层 -->
+                          <div class="pull-to-refresh-layer">
+                              <!-- <div class="suijicont suijicont0 hide">随机的内容广泛单干户0</div>
+                              <div class="suijicont suijicont1 hide">随机的内容广泛单干户1</div>
+                              <div class="suijicont suijicont2 hide">随机的内容广泛单干户2</div>
+                              <div class="suijicont suijicont3 hide">随机的内容广泛单干户3</div>
+                              <div class="suijicont suijicont4 hide">随机的内容广泛单干户4</div>
+                              <div class="suijicont suijicont5 hide">随机的内容广泛单干户5</div>
+                              <div class="suijicont suijicont6 hide">随机的内容广泛单干户6</div> -->
+                              <div class="preloader"></div>
+                              <div class="pull-to-refresh-arrow"></div>
+                          </div>
+                          <!-- 内容主题 -->
+                          <div class="">
+                              <div class="list-block list-block-alllist">
+                                    <ul class="withdw-ul" id="withdw-ul">
+                                        
+                                    </ul>
+                              </div>
+                          </div>
+                          <!-- 加载提示符 -->
+                          <div class="infinite-scroll-preloader hide">
+                              <div class="preloader"></div>
+                          </div>
+                      </div>
+                    </div>
+                    <!-- tab1 -->
+                    <div id="tab2" class="tab">
+                       <div class="content pull-to-refresh-content content-withdw  tongzhitab" data-ptr-distance="55" data-distance="2" style="top:2.2rem">
+                          <!-- 默认的下拉刷新层 -->
+                          <div class="pull-to-refresh-layer">
+                              <div class="suijicont suijicont0 hide">的0</div>
+                              <div class="suijicont suijicont1 hide">广泛单干户1</div>
+                              <div class="suijicont suijicont2 hide">广泛单干户2</div>
+                              <div class="suijicont suijicont3 hide">容广泛单干户3</div>
+                              <div class="suijicont suijicont4 hide">广泛单干户4</div>
+                              <div class="suijicont suijicont5 hide">广泛单干户5</div>
+                              <div class="suijicont suijicont6 hide">广泛单干户6</div>
+                              <div class="preloader"></div>
+                              <div class="pull-to-refresh-arrow"></div>
+                          </div>
+                          <!-- 内容主题 -->
+                          <div class="">
+                              <div class="list-block list-block-alllist">
+                                    <ul class="withdw-ul" id="withdw-ul2">
+                                        
+                                    </ul>
+                              </div>
+                          </div>
+                          <!-- 加载提示符 -->
+                          <div class="infinite-scroll-preloader hide">
+                              <div class="preloader"></div>
+                          </div>
+                          <img class="mypreloader hide" src="images/end.png">
+                      </div>
+                    </div>
+                    <!-- tab2 -->
+                  </div>  
+           </div>
+       </div>
+    <script type="text/html" id="withdw-ulTpl">
+        {{each data as item}}
+        <li class="item-content item-content-withdw item-content-mess" value="{{item.articleId}}" data-id="{{item.articleId}}" data-postType="{{item.postType}}" style="padding-left: 3rem;">
+          <img class="messtip-r" src="{{picurl}}{{item.memberAvatar}}"/>
+          <div class="item-inner item-inner-withdw"  >
+            <div class="item-title item-title-message" style="font-size: 0.9rem;color:#d07c04;">{{item.memberName}}</div>
+            <div class="item-after item-after-message"></div>
+          </div>
+          <div class="message-content" style="color:#222121;font-size: 0.75rem;">{{item.replyContent}}</div>
+          <div class="message-time">{{item.createTime}}</div>  
+          <div class="message-for" style="color: #676464;font-size: 0.7rem;">
+              {{if item.type=="1"}}
+                  回复我的帖子
+                  {{else if item.type=="2"}}
+                   回复我的回复
+                   {{else if item.type=="3"}}
+                   回复我的评论
+              {{/if}}
+              :<span style="margin-left: 6px;font-size:0.7rem;">{{item.myReplyContent}}</span>
+          </div>                      
+        </li> 
+        {{/each}} 
+    </script>
+    <script type="text/html" id="withdwkong-ulTpl">
+        <div class="message-nolist">
+          <div class="message-noicon"></div>
+          <div>暂无消息</div>
+        </div>
+    </script>
+    <script type="text/html" id="withdw-ulTpl2">
+        {{each data as item}}
+        <li class="item-content item-content-withdw item-content-mess2" value="{{item.id}}" style="padding-left:2.8rem">
+          <div class="message-tongzhiicon" style="background: url('images/gg@2x.png');background-size: cover;width:2.05rem;height:2.05rem;top:1.25rem;"></div>
+          <div class="item-inner item-inner-withdw" style="padding-top:1.25rem;padding-bottom: 0;">
+            <div class="item-title item-title-message" style="font-size:.75rem;color:#fe9705;">{{item.noticeTitle}}</div>
+          </div>  
+          <div class="message-time" style="border-bottom:0;padding-right:.875rem;font-size: 0.75rem;color:#7e7a7a;">{{item.noticeContent}}</div>
+          <div class="message-time" style="border-bottom:0;border-top: 1px solid #e4e4e4;padding-bottom: 0.5rem;padding-top:0.7rem;font-size: 0.6rem;color:#ABAAAA;">{{item.createTime}}</div>
+        </li> 
+        {{/each}} 
+    </script>
+    <script type="text/html" id="withdwkong2-ulTpl2">
+        <div class="message-nolist">
+          <div class="message-noicon"></div>
+          <div>暂无消息</div>
+        </div>
+    </script>
+     <script type="text/javascript" data-main="js/message.js" src="js/lib/require.min.js"></script>  
+   </body>
+</html>

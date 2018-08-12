@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>关注的人</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1"/>
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<!--<link rel="shortcut icon" href="http://www.suning.com/favicon.ico" type="image/x-icon" />-->
+	<link rel="stylesheet" type="text/css" href="css/sm.min.css"/>
+	<link rel="stylesheet" type="text/css" href="css/followPeople.css"/>
+</head>
+<body>
+<div class="page-group">
+	<div id="page-infinite-scroll-bottom" class="page">
+		<header class="bar bar-nav followBar">
+			<a class="button button-link button-nav pull-left back" href="javascript:;" onClick="javascript:history.go(-1);">
+				<img src="images/all_icon_Back.png">
+			</a>
+			<h1 class="title followtitle">关注的人</h1>
+		</header>
+		<div class="content infinite-scroll pull-to-refresh-content userList" data-distance="150">
+			<div class="pull-to-refresh-layer">
+				<div class="preloader"></div>
+				<div class="pull-to-refresh-arrow"></div>
+			</div>
+			<div class="list-block followlistblock">
+				<ul class="list-container">
+					<!--<li class="item-content">-->
+					<!--<div class="item-inner">-->
+					<!--<div class="item-title">-->
+					<!--<img src="images/all_icon_MyPhoto.png">-->
+					<!--<span>用户昵称</span>-->
+					<!--</div>-->
+					<!--<div class="Gender">-->
+					<!--<img src="images/all_icon_Female.png">-->
+					<!--</div>-->
+					<!--</div>-->
+					<!--</li>-->
+				
+				</ul>
+			</div>
+			<!-- 滚动加载提示符 -->
+			<div class="infinite-scroll-preloader ">
+				<div class="preloader"></div>
+			</div>
+			<!-- 已经加载到底 -->
+			<img class="mypreloader hide" src="images/end.png" >
+		</div>
+</div>
+</div>
+<script type="text/html" id="followPeopleTpl">
+	{{each data as item index}}
+	<li class="item-content peopleitemContent">
+		<div class="item-inner followinner">
+			<div class="item-title followtitle">
+				
+				<img src="{{picurl}}{{item.avatar}}">
+				
+				<span>{{item.name}}</span>
+			</div>
+			<div class="Gender">
+				<img src="{{item.sex ==1?'images/all_icon_Female.png':'images/all_icon_Male.png'}}	">
+			</div>
+		</div>
+	</li>
+	{{/each}}
+</script>
+</body>
+<script type="text/javascript" data-main="js/followPeople.js" src="js/lib/require.min.js"></script>
+</html>

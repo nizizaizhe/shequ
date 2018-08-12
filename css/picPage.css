@@ -1,0 +1,179 @@
+.pic-title{
+  background: #fed322;
+  color: #323232;
+  font-weight: bold;
+  font-size: 1rem;
+}
+.picture-Content {
+  width: 100%;
+  margin-top: 0.4rem;
+  background: #fff;
+}
+.picture-Content-header {
+  width: 100%;
+  height: 2.1rem;
+  line-height: 2.1rem;
+  background: #fff;
+  font-size: 0.675rem;
+  padding-left: 0.5rem;
+  color: #323232;
+}
+.bar.picBar{
+  height:3.2rem;
+  padding-top:1rem;
+  background: #fed322;
+}
+.bigpicture {
+  position: relative;
+  width: 100%;
+  height: 10.5rem;
+}
+.bigpicture img:nth-child(1) {
+  width: 100%;
+  height: 10.5rem;
+}
+.bottomicon {
+  /*width: 100%;*/
+  /*height: 2.15rem;*/
+  /*background: #fff;*/
+  /*display: flex;*/
+  /*justify-content: space-between;*/
+  /*padding: 0 0.6rem 0 0.5rem;*/
+}
+.bottomLeft {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+}
+.bottomLeft img {
+  width: 1.5rem;
+  height: 1.5rem;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  border-radius: 50%;
+}
+.bottomLeft span {
+  display: inline-block;
+  /*margin-top: 0.8rem;*/
+  margin-left: 1.8rem;
+  font-size: 0.57rem;
+  color: #323232;
+}
+.bottomRight {
+  line-height: 2.15rem;
+}
+.bottomRight div {
+  display: inline-block;
+}
+.fabulous img {
+  /*position: absolute;*/
+  /*top: 50%;*/
+  /*left: -1rem;*/
+  /*transform: translateY(-50%);*/
+}
+.fabulous img, .reply img, .collection img {
+  width: 0.7rem;
+  height: 0.7rem;
+}
+.reply, .collection, .fabulous {
+  position: relative;
+}
+.reply span, .collection span, .fabulous span {
+  font-size: 0.65rem;
+  color: #888888;
+}
+.toppic{
+  /*margin-top:2.6rem;*/
+}
+.picture-Content a{
+  display: block;
+}
+
+
+.icon-left.iconleft:before{
+  content:"";
+}
+.back img{
+  width:0.625rem;
+  height:1rem;
+}
+.bar-nav~.content.picBar{
+  top: 3.2rem;
+}
+
+
+.back{
+  display: inline-block;
+  width:2rem;
+  height:2rem;
+}
+.userHead {
+  padding-left: 0.5rem;
+  padding-top: 0.775rem;
+  position: relative;
+}
+.userHead img {
+  width: 1.6rem;
+  height: 1.7rem;
+  border-radius: 50%;
+}
+.userName {
+  vertical-align: top;
+  margin-left: 0.2rem;
+  color: #fe9705;
+  font-size: 0.6rem;
+}
+.comefrom {
+  color: #247f99;
+  font-size: 0.6rem;
+  position: absolute;
+  top: 1.8rem;
+  left: 2.6rem;
+}
+.picbiaoti {
+  padding-left: 0.5rem;
+}
+.biaoti {
+  font-size: 0.9rem;
+  color: #5c5c5c;
+  font-weight: bold;
+  display: inline-block;
+  margin-top: 0.4rem;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+}
+.bottomicon{
+  width: 100%;
+  height: 2.2rem;
+  line-height: 2.2rem;
+  background: #fff;
+  display: flex;
+  justify-content: space-around;
+  border-top: 0.1rem solid #f5f5f5;
+  margin-top: 0.2rem;
+}
+.bottomicon span{
+  margin-left:0.5rem;
+}
+.biaoti img {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 0.5rem;
+}
+.h-piccontent{
+  margin-top: 0.4rem;
+  padding: 0 0.5rem;
+}
+.picbiaoti{
+  padding-left: 0.5rem;
+}
+.mypreloader{display: block;margin: 0 auto;}
+.hide{display: none ;}
+.picwrap{
+  margin-top: 1rem;
+}

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title>发布内容</title>
+      <META HTTP-EQUIV="pragma" CONTENT="no-cache"> 
+      <META HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate"> 
+
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+      <meta name="apple-mobile-web-app-capable" content="yes">
+      <meta name="apple-mobile-web-app-status-bar-style" content="black">
+      <link rel="stylesheet" type="text/css" href="css/sm.min.css" /> 
+      <link rel="stylesheet" type="text/css" href="css/all_list.css" /> 
+   </head>
+   <body>
+      <div class="page-group">
+        <div class="page page-current" id="page-fixed-tab-infinite-scroll">
+              <header class="bar bar-nav bar-alllist">
+                  <div class="backdiv"><a class="icon icon-left pull-left icon-alllist"></a></div>
+                  <h1 class="title lgtitle">发布内容</h1>
+                  <a id="collect-guanli" href="javascript:;" style="color:#323232;font-size:.625rem;z-index:30">下一步</a>
+              </header>
+             <!-- 带图片的帖子 -->
+              <div class="content content-withdw" >
+                  <div class="toRel-title hide">
+                      <div style="width: 1px;height: .3rem"></div>
+                      <input class="toRel-titlecont" style="background: #fff" type="text" placeholder="请输入标题"/>
+                  </div>
+                  <div class="toRel-area">
+                      <textarea class="toRel-areacont hide" placeholder="想对大家说点什么呢？（正文不少于20个字） "></textarea>
+                      <div class="toRel-niming">匿名</div>
+                      <div class="tupian hide">
+                        <div class="toRel-dibu" id="addPic">
+                            <div class="toRel-uppicbgck">
+                              <img src="./images/jia12@2x.png">
+                              <div class="addtxt">添加图片</div>
+                            </div>
+                            <!-- <div class="toRel-uppicbg">
+                               <img src="./images/jia12@2x.png">
+                            </div>
+                            <div class="toRel-uppicbg">
+                               <img src="./images/jia12@2x.png">
+                            </div>
+                            <div class="toRel-uppicbg">
+                               <img src="./images/jia12@2x.png">
+                            </div>
+                            <div class="toRel-uppicbg">
+                               <img src="./images/jia12@2x.png">
+                            </div>
+                            <div class="toRel-uppicbg">
+                               <img src="./images/jia12@2x.png">
+                            </div>
+                            <div class="toRel-uppicbg">
+                               <img src="./images/jia12@2x.png">
+                            </div>
+                            <div class="toRel-uppicbg">
+                               <img src="./images/jia12@2x.png">
+                            </div>
+                            <div class="toRel-uppicbg">
+                               <img src="./images/jia12@2x.png">
+                            </div>
+                            <div class="toRel-uppicbg">
+                               <img src="./images/jia12@2x.png">
+                            </div> -->
+                        </div> 
+                      </div>
+                          <!-- shipin -->
+                      <div class="shipin">
+                          <div class="toRel-dibu" id="addVideo">
+                              <div class="toRel-upvideobgck">
+                                <img src="./images/jia12@2x.png">
+                                <div class="addtxt">添加视频</div>
+                              </div>
+                              <!-- <div class="toRel-upvideobg">
+                                 <img src="./images/jia12@2x.png">
+                              </div> -->
+                          </div>
+                      </div> 
+                  </div>
+              </div>
+         </div>
+      </div>
+      <script type="text/html" id="addPicTpl">
+         <div class="toRel-uppicbg">
+           <img src="data:image/png;base64,{{addurl}}">
+         </div>
+      </script>
+      <script type="text/html" id="addVideoTpl">
+         <div class="toRel-upvideobg">
+           <img src="data:image/png;base64,{{addurl}}">
+         </div>
+      </script>
+     <script type="text/javascript" data-main="js/toReleasePic.js" src="js/lib/require.min.js"></script>  
+   </body>
+</html>

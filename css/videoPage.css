@@ -1,0 +1,173 @@
+.pic-title{
+  background: #fed322;
+  color: #323232;
+  font-weight: bold;
+  font-size: 1rem;
+}
+.bar.videoBar{
+  height:3.2rem;
+  padding-top:1rem;
+  background: #fed322;
+}
+.picture-Content {
+  width: 100%;
+  margin-top: 0.4rem;
+  background: #fff;
+}
+.picture-Content-header {
+  width: 100%;
+  height: 2.1rem;
+  line-height: 2.1rem;
+  background: #fff;
+  font-size: 0.675rem;
+  padding-left: 0.5rem;
+  color: #323232;
+}
+.bigpicture {
+  position: relative;
+  width: 100%;
+  height: 11.95rem;
+}
+.bigpicture img:nth-child(1) {
+  width: 100%;
+  max-height: 11.5rem;
+}
+.bigpicture img:nth-child(2) {
+  width: 4rem;
+  height: 4rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -2rem;
+  margin-top: -2rem;
+}
+
+.bottomLeft {
+  position: relative;
+}
+.bottomRight {
+  line-height: 2.15rem;
+}
+.bottomRight div {
+  display: inline-block;
+}
+.reply, .collection, .fabulous {
+  position: relative;
+}
+.reply, .collection {
+  margin-left: 1.1rem;
+}
+.reply img, .collection img, .fabulous img {
+  width: 0.7rem;
+  height: 0.7rem;
+  /* position: absolute; */
+  /* top: 50%; */
+  /* left: -1rem; */
+  /* transform: translateY(-50%); */
+  vertical-align: middle;
+}
+.bottomLeft img {
+  width: 1.5rem;
+  height: 1.5rem;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  border-radius: 50%;
+}
+.bottomLeft span {
+  display: inline-block;
+  margin-top: 0.8rem;
+  margin-left: 1.8rem;
+  font-size: 0.57rem;
+  color: #323232;
+}
+.video-content a{
+  display: block;
+}
+.reply span, .collection span, .fabulous span {
+  font-size: 0.65rem;
+  color: #888888;
+}
+.icon-left.iconleft:before{
+  content:"";
+}
+.back img{
+  width:0.625rem;
+  height:1rem;
+}
+
+.back{
+  display: inline-block;
+  width:2rem;
+  height:2rem;
+}
+/*新版样式*/
+.userHead {
+  padding-left: 0.5rem;
+  padding-top: 0.775rem;
+  position: relative;
+}
+.userHead img {
+  width: 1.6rem;
+  height: 1.7rem;
+  border-radius: 50%;
+}
+.userName {
+  vertical-align: top;
+  margin-left: 0.2rem;
+  color: #fe9705;
+  font-size: 0.6rem;
+}
+.comefrom {
+  color: #247f99;
+  font-size: 0.6rem;
+  position: absolute;
+  top: 1.8rem;
+  left: 2.6rem;
+}
+.biaoti {
+  font-size: 0.9rem;
+  color: #5c5c5c;
+  font-weight: bold;
+  display: inline-block;
+  margin-top: 0.4rem;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+}
+
+.h-videocontent{
+  margin-top: 0.4rem;
+  padding: 0 0.5rem;
+}
+.bottomicon{
+  width: 100%;
+  height: 2.2rem;
+  line-height: 2.2rem;
+  background: #fff;
+  display: flex;
+  justify-content: space-around;
+  border-top: 0.1rem solid #f5f5f5;
+  margin-top: 0.2rem;
+}
+.bottomicon span{
+  margin-left:0.5rem;
+}
+.picbiaoti{
+  padding-left: 0.5rem;
+}
+.biaoti img {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 0.5rem;
+}
+.list-block.v-listblock{
+  margin: 1.1rem 0;
+}
+.list-block.v-listblock {
+  margin: 1.1rem 0;
+}
+.mypreloader{display: block;margin: 0 auto;}
+.hide{display: none}

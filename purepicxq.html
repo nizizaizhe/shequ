@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>纯图片详情</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1"/>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <!--<link rel="shortcut icon" href="http://www.suning.com/favicon.ico" type="image/x-icon" />-->
+  <link rel="stylesheet" type="text/css" href="css/sm.min.css"/>
+  <link rel="stylesheet" type="text/css" href="css/purepicxq.css"/>
+</head>
+<body>
+<div class="page-group">
+  <div id="page-infinite-scroll-bottom" class="page">
+    <header class="bar bar-nav picxqBar">
+      <div class="pq-quanzipic">
+        <span class="quanziLogo"><img src="images/all_icon_GroupLogo.png"></span>
+        <span class="quanziName"></span>
+      </div>
+       
+       <span class="functional-keys"><img src="images/all_icon_option.png"></span>
+        <span class="close"><a href="javascript:;" onClick="javascript:history.go(-1);"><img src="images/all_icon_close.png"></a></span>
+    </header>
+    <div class="content infinite-scroll" data-distance="50">
+      <div class="list-block listblock">  
+        <ul class="datu" id="tiezidetail">
+          <!-- 帖子内容模版 -->
+        </ul>
+        <ul class="full-reply" id="full-reply">
+           
+        
+        </ul>
+        <div class="return-box">
+          <input id="return-box" type="text" placeholder="说点什么">
+          <div class="iconright">
+            <div class="reply">
+              <a href="#">
+                <img src="images/all_icon_Comment_normal.png">
+                <span id="clocknum"></span>
+              </a>
+            </div>
+            <div class="fabulous">
+              <img src="images/all_icon_Good_normal.png">
+              <span id="zannum"></span>
+            </div>
+          </div>
+        </div>
+        <div class="function-list ">
+          
+          <div class="openList">
+            <img class="sanjiao" src="images/reply_frame_triangle.png">
+            <ul class="ulContent">
+              <li class="liContent"><span><img src="images/reply_icon_sender_normal.png"></span><span>只看楼主</span></li>
+              <li class="liContent"><span><img src="images/reply_icon_time_normal.png"></span><span>时间排序</span></li>
+              <li class="liContent"><span><img src="images/reply_icon_collection_normal.png"></span><span>收藏</span></li>
+              <li class="liContent"><span><img src="images/reply_icon_download_1.png"></span><span>下载</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+<script type="text/html" id="tiezidetailTpl">
+  <div class="tutitle">
+    <span>{{data.title}}</span>
+    <div class="pq-circlename"><span>{{data.groupName}}</span><span>【{{data.categoryName}}】</span></div>
+  </div>
+  {{each data.imageUrl as item index}}
+  <li>
+    <div><img src="{{data.picurl}}{{item}}"></div>
+  </li>
+  {{/each}}
+</script>
+<!--评论回复模板-->
+<script type="text/html" id="commentTpl">
+  <span class="qbhf">全部回复</span>
+{{each data as item index}}
+<li>
+  <div class="nickname ">
+    <img src="images/all_icon_GroupLogo.png">
+    <div class="nickname-header">
+      <span class="vdUser">{{item.memberName}}</span>
+      <img src="images/all_icon_Female.png">
+      
+      <div class="before">1F&nbsp;{{item.commentTime}}</div>
+    </div>
+  </div>
+  <div class="post-text post">
+    {{item.content}}
+  </div>
+  <span class="godetail"><a href="replylist.html" style="display: block"><img src="images/all_icon_small_Next.png"></a></span>
+  <ul class="vd-twoLevelList">
+    {{include 'replyTpl' item }}
+  </ul>
+</li>
+  {{/each}}
+</script>
+<script type="text/html" id="replyTpl">
+  {{each replysVoList as item index}}
+  {{if index <2}}
+  <li>
+    <span class="vdUser">{{item.fromMemberName}}</span> <span class="landlord">楼主</span>：<span class="crnr">{{item.replyMsg}}</span>
+  </li>
+  {{/if}}
+  {{/each}}
+  {{if replysVoList.length > 2 }}
+  <li class="more-comments"><a href="replylist.html">更多评论></a></li>
+  {{/if}}
+</script>
+<!-- <script type="text/html" id="pinglunTpl">
+     <span class="qbhf">全部回复</span>
+      <li>
+        <div class="nickname ">
+          <img src="images/all_icon_GroupLogo.png">
+          <div class="nickname-header">
+            <span class="vdUser">大路</span>
+            <img src="images/all_icon_Female.png">
+            <span class="landlord">楼主</span>
+            <div class="before">1F&nbsp;1小时前</div>
+          </div>
+        </div>
+        <div class="post-text post">
+          这是我拍的第一部AV
+        </div>
+        <span class="godetail"><a href="http://www.baidu.com" style="display: block"><img src="images/all_icon_small_Next.png"></a></span>
+      </li>
+      <li>
+        <div class="nickname ">
+          <img src="images/all_icon_GroupLogo.png">
+          <div class="nickname-header">
+            <span class="vdUser">walker</span>
+            <img src="images/all_icon_Female.png">
+            
+            <div class="before">1F&nbsp;1小时前</div>
+          </div>
+        </div>
+        <div class="post-text post">
+          拍的不错
+        </div>
+        <span class="godetail"><a href="http://www.baidu.com" style="display: block"><img src="images/all_icon_small_Next.png"></a></span>
+        <ul class="vd-twoLevelList">
+          <li>
+            <span class="vdUser">大路</span> <span class="landlord">楼主</span>：<span class="crnr">多谢多谢</span>
+          </li>
+          <li><span class="vdUser">walker</span>:<span class="crnr">看把你开心的</span></li>
+          <li class="more-comments"><a href="#">更多评论></a></li>
+        </ul>
+      </li>
+</script> -->
+<script type="text/javascript" data-main="js/purepicxq.js" src="js/lib/require.min.js"></script>
+</html>

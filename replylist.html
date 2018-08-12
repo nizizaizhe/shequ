@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>评论回复列表</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!--<link rel="shortcut icon" href="http://www.suning.com/favicon.ico" type="image/x-icon" />-->
+    <link rel="stylesheet" type="text/css" href="css/sm.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/replylist.css"/>
+</head>
+<body>
+<div class="page-group">
+    <div id="page-infinite-scroll-bottom" class="page">
+        <header class="bar bar-nav replyBar">
+            <a class="button button-link button-nav pull-left back" href="#" onclick="javascript :history.go(-1);">
+                <img src="images/all_icon_Back.png"></a>
+            <h1 class="title pingluntitle">评论详情</h1>
+
+        </header>
+        <div class="content infinite-scroll" data-distance="100">
+
+            <div class="list-block pinlunlistblock">
+
+                <div class="postContent"></div>
+                <div class="return-box">
+                    <input id="return-box" class="iptReplay" type="text" placeholder="槽点太多,来BB两句吧~">
+                    <img class="btnSend" src="images/fasong.png">
+                </div>
+
+
+                <ul class="full-reply replyList">
+                    <!--<li>-->
+                    <!--<div class="huifuList">-->
+                    <!--<div class="huifuneirong">-->
+                    <!--<div class="userHead detailHead">-->
+                    <!--<img src="images/default-avatar.png">-->
+                    <!--<span class="userName">你是一个呆怂赛</span>-->
+                    <!--<span class="sex"><img src="images/all_icon_Female.png"></span>-->
+
+                    <!--<span class="longAgo">12小时前</span>-->
+                    <!--<span class="islz">楼主</span>-->
+                    <!--</div>-->
+                    <!--<div class="concreteContent">-->
+                    <!--<span class="hf">回复：</span>-->
+                    <!--<span class="pName">赵日天</span>-->
+                    <!--<span class="neirong">不要瞎BB</span>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--</li>-->
+                </ul>
+
+                <!--<div class="return-box">-->
+                <!---->
+                <!--</div>-->
+                <div class="function-list ">
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--HEADER模板-->
+<!--<script type="text/html" id="headerTpl">-->
+<!--<a class="button button-link button-nav pull-left back" href="#" onclick="javascript :history.go(-1);">-->
+<!--<img src="images/all_icon_Back.png"></a>-->
+<!--<h1 class="title">评论详情</h1>-->
+<!--<span class="functional-keys"><img src="images/all_icon_option.png"></span>-->
+<!--</script>-->
+<!--评论模板-->
+<script type="text/html" id="commentTpl">
+    <div class="left-content lfc">
+        <div class="nickname">
+            <img src="{{picurl}}{{avatar}}">
+            <div class="nickname-header">
+                <span>{{memberName}}</span>
+                {{if sex==1}}
+                <img src="images/all_icon_Male.png">
+                {{else}}
+                <img src="images/all_icon_Female.png">
+                {{/if}}
+                <div class="before"><span>板凳</span>&nbsp;&nbsp;<span>{{commentTime}}</span></div>
+            </div>
+        </div>
+        <div class="post-text replylist-text">
+            {{content}}
+        </div>
+
+    </div>
+
+</script>
+<!--评论回复模板-->
+<!--<li>-->
+<!--{{if index <2 && item.replyType==1 }}-->
+<!--{{if item.isLouzhu==1 }}-->
+<!--<span class="vdUser" >{{item.fromMemberName}}</span> <span class="landlord">楼主</span>：-->
+<!--<span class="crnr replyMsg" fromUserId="{{item.fromUserId}}" >{{item.replyMsg}}</span>-->
+<!--{{else}}-->
+<!--<span class="vdUser" >{{item.fromMemberName}}</span> :-->
+<!--<span class="crnr replyMsg" fromUserId="{{item.fromUserId}}" fromMemberName="{{item.fromMemberName}}">{{item.replyMsg}}</span>-->
+<!--{{/if}}-->
+<!--{{else}}-->
+<!--<span class="vdUser" >{{item.fromMemberName}}</span> <span class="landlord">回复@</span><span class="crnr" >{{item.toMemberName}}</span>:&nbsp;&nbsp;-->
+<!--<span class="crnr replyMsg "  fromUserId="{{item.fromUserId}}" fromMemberName="{{item.fromMemberName}}" style="color: #808080;">{{item.replyMsg}}</span>-->
+<!--{{/if}}-->
+<!--</li>-->
+
+<!--replyType  int  回复类型1 评论 2 回复-->
+<script type="text/html" id="replyTpl">
+    <!--<div class="qbhf">回复评论<span>({{countNum}}条)</span></div>-->
+    {{each replysVoList as item index}}
+    <li>
+        <div class="huifuList">
+            <div class="huifuneirong">
+                <div class="userHead detailHead">
+                    {{if item.replyType==1}}
+                    <img src="{{picurl}}{{item.fromMemberAvatar}}">
+                    <span class="userName">{{item.fromMemberName}}</span>
+                    {{else}}
+                    <img src="{{picurl}}{{item.toMemberAvatar}}">
+                    <span class="userName">{{item.toMemberName}}</span>
+                    {{/if}}
+                    <span class="sex">
+                        {{if sex=='1'}}
+                        <img src="images/all_icon_Male.png">
+                        {{else}}
+                        <img src="images/all_icon_Female.png">
+                        {{/if}}
+                    </span>
+                    <span class="longAgo">{{item.createTimeStr}}</span>
+                    {{if item.isLouzhu==1 }}
+                    <span class="islz">楼主</span>
+                    {{/if}}
+                </div>
+                <div class="concreteContent" fromUserId="{{item.fromUserId}}" fromMemberName="{{item.fromMemberName}}"
+                     replyMsg="{{item.replyMsg}}">
+                    {{if item.replyType==1}}
+                    <span class="neirong">{{item.replyMsg}}</span>
+                    {{else}}
+                    <span class="pName">{{item.fromMemberName}}</span>
+                    <span class="hf">回复@</span>
+                    <span class="pName">{{item.toMemberName}}</span>
+                    <span class="neirong">:{{item.replyMsg}}</span>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+    </li>
+    {{/each}}
+
+</script>
+
+<!--底部模板-->
+<script type="text/html" id="bottomTpl">
+    <form action="">
+    {{if replyType==2}}
+    <input class="iptReplay" type="text" placeholder="回复@{{toMemberName}}">
+    {{else}}
+    <input class="iptReplay" type="text" placeholder="评论{{floor}}楼">
+    {{/if}}
+    </form>
+    <div class="iconright">
+        <div class="reply">
+            <a href="#">
+                <img src="images/all_icon_Comment_normal.png">
+                <span>20</span>
+            </a>
+        </div>
+        <div class="fabulous">
+            <img src="images/all_icon_Good_normal.png">
+            <span>10</span>
+        </div>
+    </div>
+</script>
+</body>
+<script type="text/javascript" data-main="js/replylist.js" src="js/lib/require.min.js"></script>
+
+</html>

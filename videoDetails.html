@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>帖子详情</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1"/>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <!--<link rel="shortcut icon" href="http://www.suning.com/favicon.ico" type="image/x-icon" />-->
+
+  <link rel="stylesheet" type="text/css" href="css/sm.min.css"/>
+  <link rel="stylesheet" type="text/css" href="css/reset.css"/>
+  <link rel="stylesheet" type="text/css" href="css/videoDetails.css"/>
+</head>
+<body>
+<div class="page-group">
+  <div class="page">
+    <header class="bar bar-nav detailBar">
+      <a class="button button-link button-nav pull-left back goback" href="javascript:;" onClick="javascript:history.back(-1);">
+        <img src="images/all_icon_Back.png"></a>
+      <h1 class="title detailtitle">帖子详情</h1>
+      <span class="islouzhu" style="display: none"></span>
+      <span class="pinglun">只看楼主</span>
+    </header>
+    <div class="content  pull-to-refresh-content  infinite-scroll transitioning  videoDetailContent">
+      <!-- 默认的下拉刷新层 -->
+      <div class="pull-to-refresh-layer">
+        <div class="preloader"></div>
+        <div class="pull-to-refresh-arrow"></div>
+      </div>
+      <div class="list-block listblock">
+        <div class="videoorpic">
+          <!--模板内容-->
+        </div>
+        <div class="qbhf"><span>评论</span><span class="btnTime"><label style="font-size: .8rem">默认</label><img  src="images/sort.png"></span></div>
+        <div class="return-box">
+          <input id="return-box" class="iptReplay" type="text" placeholder="槽点太多,来BB两句吧~">
+          <div class="fsBtn">
+            <img class="btnSend" src="images/fasong1.png">
+            <span class="fasong">发送</span>
+          </div>
+          
+        </div>
+        <ul class="full-reply">
+          <!--<span class="qbhf">全部回复</span>-->
+          <li>
+            <ul class="vd-twoLevelList">
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <!-- 滚动加载提示符 -->
+      <div class="infinite-scroll-preloader hide">
+        <div class="preloader"></div>
+      </div>
+      <!-- 暂无评论时显示 -->
+      <div class="sofa hide">
+        <img src="images/f1.png">
+        <div>还没有人评论~</div>
+      </div>
+      <!-- 已经加载到底 -->
+      <img class="mypreloader hide" src="images/end.png" >
+    </div>
+  </div>
+  <div class="roundBall hide" draggable="true"><span>评</span><br /><span>论</span></div>
+</div>
+
+<!--纯图片模板-->
+<script type="text/html" id="picTpl">
+  <div class="pic fromMember" fromMemberId='{{data.memberId}}'>
+    <div class="userHead detailHead">
+      <img src="{{picurl}}{{data.avatar}}"/>
+      {{if data.anonymous==0}}
+      <span class="userName">{{data.name}}</span>
+      {{else}}
+      <span class="userName">匿名</span>
+      {{/if}}
+
+      <span class="sex">
+          {{if data.sex=='1'}}
+          <img src="images/all_icon_Male.png">
+          {{else if data.sex =='2'}}
+           <img src="images/all_icon_Female.png">
+          {{/if}}
+        </span>
+    </div>
+    <div class="tutitle">
+      <span>{{data.title}}</span>
+    </div>
+    {{each data.arrImg as item index}}
+    <div class="detailPicture">
+      <img class="img-only" src="{{picurl}}{{item}}">
+    </div>
+    {{/each}}
+    <div class="pq-circlename"><span>来自&nbsp;&nbsp;{{data.groupName}}</span></div>
+    <div class="ylcs"><span>阅览次数：&nbsp;{{data.viewCount}}</span><span>{{data.createTimeStr}}</span></div>
+    <div class="bottomicon">
+      <div class="fabulous" articleId="{{data.id}}">
+        {{if data.isThumbUp==0}}
+        <img src="images/all_icon_Good_normal.png">
+        {{else}}
+        <img src="images/all_icon_Good_press.png">
+        {{/if}}
+        <span>{{data.goodNum}}</span>
+      </div>
+      <div class="reply">
+        <a href="#">
+          <img src="images/all_icon_Comment_normal.png">
+          <span>{{data.commentTimes}}</span>
+        </a>
+      </div>
+      <div class="collection" articleId="{{data.id}}">
+        {{if data.isFavor==0}}
+        <img src="images/all_icon_Collection_normal.png">
+        {{else}}
+        <img src="images/all_icon_Collection_press.png">
+        {{/if}}
+        <span>收藏</span>
+      </div>
+    </div>
+  </div>
+</script>
+
+<!--图文模板-->
+<script type="text/html" id="picTextTpl">
+  <div class="picText fromMember"  fromMemberId='{{data.memberId}}'>
+    <div class="userHead detailHead">
+      <img src="{{picurl}}{{data.avatar}}"/>
+      {{if data.anonymous==0}}
+      <span class="userName">{{data.name}}</span>
+      {{else}}
+      <span class="userName">匿名</span>
+      {{/if}}
+      <span class="sex">
+          {{if data.sex=='1'}}
+          <img src="images/all_icon_Male.png">
+          {{else if data.sex =='2'}}
+           <img src="images/all_icon_Female.png">
+          {{/if}}
+        </span>
+    </div>
+    <div class="tutitle">
+      <span>{{data.title}}</span>
+    </div>
+    <div class="textMiaoshu">{{data.description}}</div>
+    {{each data.arrImg as item index}}
+    <div class="detailPicture">
+      <img class="img-only" src="{{picurl}}{{item}}">
+    </div>
+    {{/each}}
+    <div class="pq-circlename"><span>来自&nbsp;&nbsp;{{data.groupName}}</span></div>
+    <div class="ylcs"><span>阅览次数：&nbsp;{{data.viewCount}}</span><span>{{data.createTimeStr}}</span></div>
+    <div class="bottomicon">
+      <div class="fabulous" articleId="{{id}}">
+        {{if data.isThumbUp==0}}
+        <img src="images/all_icon_Good_normal.png">
+        {{else}}
+        <img src="images/all_icon_Good_press.png">
+        {{/if}}
+        <span>{{data.goodNum}}</span>
+      </div>
+      <div class="reply">
+        <a href="#">
+          <img src="images/all_icon_Comment_normal.png">
+          <span>{{data.commentTimes}}</span>
+        </a>
+      </div>
+      <div class="collection" articleId="{{id}}">
+        {{if data.isFavor==0}}
+        <img src="images/all_icon_Collection_normal.png">
+        {{else}}
+        <img src="images/all_icon_Collection_press.png">
+        {{/if}}
+        <span>收藏</span>
+      </div>
+    </div>
+  </div>
+
+</script>
+<!--视频文字模板-->
+<script type="text/html" id="videoTextTpl">
+  <div class="userHead detailHead fromMember"  fromMemberId='{{data.memberId}}'>
+    <img src="{{picurl}}{{data.avatar}}"/>
+    {{if data.anonymous==0}}
+    <span class="userName">{{data.name}}</span>
+    {{else}}
+    <span class="userName">匿名</span>
+    {{/if}}
+    <span class="sex">
+          {{if data.sex=='1'}}
+          <img src="images/all_icon_Male.png">
+          {{else if data.sex =='2'}}
+           <img src="images/all_icon_Female.png">
+          {{/if}}
+        </span>
+  </div>
+  <div class="tutitle">
+    <span>{{data.title}}</span>
+  </div>
+  <div class="textMiaoshu">{{data.description}}</div>
+  <video controls webkit-playsinline playsinline id="myvedio">
+    <source src="{{videourl}}{{data.videoUrl}}">
+  </video>
+  <div class="pq-circlename"><span>来自&nbsp;&nbsp;{{data.groupName}}</span></div>
+  <div class="ylcs"><span>阅览次数：&nbsp;{{data.viewCount}}</span><span>{{data.createTimeStr}}</span></div>
+  <div class="bottomicon">
+    <div class="fabulous" articleId="{{data.id}}">
+      {{if data.isThumbUp==0}}
+      <img src="images/all_icon_Good_normal.png">
+      {{else}}
+      <img src="images/all_icon_Good_press.png">
+      {{/if}}
+      <span>{{data.goodNum}}</span>
+    </div>
+    <div class="reply">
+      <a href="#">
+        <img src="images/all_icon_Comment_normal.png">
+        <span>{{data.commentTimes}}</span>
+      </a>
+    </div>
+    <div class="collection" articleId="{{id}}">
+      {{if data.isFavor==0}}
+      <img src="images/all_icon_Collection_normal.png">
+      {{else}}
+      <img src="images/all_icon_Collection_press.png">
+      {{/if}}
+      <span>收藏</span>
+    </div>
+  </div>
+
+</script>
+<!--文字模板-->
+<script type="text/html" id="textTpl">
+  <div class="pic">
+    <div class="userHead detailHead fromMember"  fromMemberId='{{data.memberId}}'>
+      <img src="{{picurl}}{{data.avatar}}"/>
+      {{if data.anonymous==0}}
+      <span class="userName">{{data.name}}</span>
+      {{else}}
+      <span class="userName">匿名</span>
+      {{/if}}
+      <span class="sex">
+          {{if data.sex=='1'}}
+          <img src="images/all_icon_Male.png">
+          {{else if data.sex =='2'}}
+           <img src="images/all_icon_Female.png">
+          {{/if}}
+        </span>
+    </div>
+    <div class="tutitle">
+      <span>{{data.title}}</span>
+    </div>
+    <div class="textMiaoshu">{{data.description}}</div>
+    
+    <div class="pq-circlename"><span>来自&nbsp;&nbsp;{{data.groupName}}</span></div>
+    <div class="ylcs"><span>阅览次数：&nbsp;{{data.viewCount}}</span><span>{{data.createTimeStr}}</span></div>
+    <div class="bottomicon">
+      <div class="fabulous" articleId="{{data.id}}">
+        {{if data.isThumbUp==0}}
+        <img src="images/all_icon_Good_normal.png">
+        {{else}}
+        <img src="images/all_icon_Good_press.png">
+        {{/if}}
+        <span>{{data.goodNum}}</span>
+      </div>
+      <div class="reply">
+        <a href="#">
+          <img src="images/all_icon_Comment_normal.png">
+          <span>{{data.commentTimes}}</span>
+        </a>
+      </div>
+      <div class="collection" articleId="{{id}}">
+        {{if data.isFavor==0}}
+        <img src="images/all_icon_Collection_normal.png">
+        {{else}}
+        <img src="images/all_icon_Collection_press.png">
+        {{/if}}
+        <span>收藏</span>
+      </div>
+    </div>
+  </div>
+</script>
+
+<!--视频模板-->
+<script type="text/html" id="videoTpl">
+  <div class="userHead detailHead fromMember" fromMemberId='{{data.memberId}}'>
+    <img src="{{picurl}}{{data.avatar}}"/>
+    {{if data.anonymous==0}}
+    <span class="userName">{{data.name}}</span>
+    {{else}}
+    <span class="userName">匿名</span>
+    {{/if}}
+    <span class="sex">
+          {{if data.sex=='1'}}
+          <img src="images/all_icon_Male.png">
+          {{else if data.sex =='2'}}
+           <img src="images/all_icon_Female.png">
+          {{/if}}
+        </span>
+  </div>
+  <div class="tutitle">
+    <span>{{data.title}}</span>
+  </div>
+  <video controls webkit-playsinline playsinline id="myvedio">
+    <source src="{{videourl}}{{data.videoUrl}}">
+  </video>
+  <!--<div class="quanzi" >
+    <span class="quanziLogo"><img src="{{picurl}}{{data.avatar}}"></span>
+    <span class="quanziName" style="color: inherit">{{data.name}}</span>
+    <span class="functional-keys"><img src="images/all_icon_option.png"></span>
+    <span class="close"><a href="#" onClick="javascript :history.go(-1);"><img src="images/all_icon_close.png"></a></span>
+  </div>-->
+  <div class="pq-circlename"><span>来自&nbsp;&nbsp;{{data.groupName}}</span></div>
+  <div class="ylcs"><span>阅览次数：&nbsp;{{data.viewCount}}</span><span>{{data.createTimeStr}}</span></div>
+  <div class="bottomicon">
+    <div class="fabulous" articleId="{{data.id}}">
+      {{if data.isThumbUp==0}}
+      <img src="images/all_icon_Good_normal.png">
+      {{else}}
+      <img src="images/all_icon_Good_press.png">
+      {{/if}}
+      <span>{{data.goodNum}}</span>
+    </div>
+    <div class="reply">
+      <a href="#">
+        <img src="images/all_icon_Comment_normal.png">
+        <span>{{data.commentTimes}}</span>
+      </a>
+    </div>
+    <div class="collection" articleId="{{id}}">
+      {{if data.isFavor==0}}
+      <img src="images/all_icon_Collection_normal.png">
+      {{else}}
+      <img src="images/all_icon_Collection_press.png">
+      {{/if}}
+      <span>收藏</span>
+    </div>
+  </div>
+</script>
+
+
+<!--底部模板-->
+
+
+<!--<script type="text/html" id="bottomTpl">-->
+<!--<div class="reply">-->
+<!--<a href="#">-->
+<!--<img src="images/all_icon_Comment_normal.png">-->
+<!--<span>{{data.commentTimes}}</span>-->
+<!--</a>-->
+<!--</div>-->
+<!--<div class="fabulous">-->
+<!--<img src="images/all_icon_Good_normal.png">-->
+<!--<span>{{data.goodNum}}</span>-->
+<!--</div>-->
+<!--</script>-->
+<!--评论回复模板-->
+<script type="text/html" id="commentTpl">
+  
+  {{each data as item index}}
+  <li class="commentContent" commentId={{item.id}}  >
+    <div class="nickname ">
+      <img src="{{picurl}}{{item.avatar}}">
+      <div class="nickname-header">
+        <span class="vdUser" memberId="{{item.memberId}}">{{item.memberName}}</span>
+        {{if item.sex=="1"}}
+          <img src="images/all_icon_Male.png">
+        {{else item.sex=="2"}}
+          <img src="images/all_icon_Female.png">
+        {{/if}}
+        {{if item.isLouzhu==1}}
+            <span class="louzhu">楼主</span>
+        {{/if}}
+        <div class="before">{{if index == 0}}沙发{{else}}{{index+1}}F{{/if}}&nbsp;{{item.commentTime}}</div>
+      </div>
+    </div>
+    <div class="post-text post">
+      {{item.content}}
+    </div>
+    
+    
+    <ul class="vd-twoLevelList">
+      {{include 'replyTpl' item }}
+    </ul>
+  </li>
+  {{/each}}
+</script>
+<!--replyType  int  回复类型1 评论 2 回复-->
+<script type="text/html" id="replyTpl">
+  {{each replysVoList as item index}}
+  
+  {{if index <2}}
+  <li>
+    {{if  item.replyType==1 }}
+      {{if item.isLouzhu==1}}
+        <span class="vdUser" >{{item.fromMemberName}}</span> <span class="landlord">楼主</span>：
+          <span class="crnr btnReply" replyId="{{item.id}}" fromUserId="{{item.fromUserId}}">{{item.replyMsg}}</span>
+      {{else}}
+        <span class="vdUser" >{{item.fromMemberName}}</span> :
+          <span class="crnr btnReply" replyId="{{item.id}}" fromUserId="{{item.fromUserId}}">{{item.replyMsg}}</span>
+      {{/if}}
+    {{else}}
+    <span class="vdUser" >{{item.fromMemberName}}</span> <span class="landlord">回复</span>@<span class="crnr" >{{item.toMemberName}}</span>:&nbsp;&nbsp;
+      <span class="crnr btnReply" replyId="{{item.id}}" fromUserId="{{item.fromUserId}}" style="color: #808080;">{{item.replyMsg}}</span>
+    {{/if}}
+  </li>
+  {{/if}}
+  
+  {{/each}}
+  {{if replysVoList.length > 2 }}
+  <li class="more-comments" style="text-align: center;"><a class="btnMore" href="javascript:;">更多评论</a></li>
+  {{/if}}
+</script>
+
+</body>
+<script type="text/javascript" data-main="js/videoDetails.js" src="js/lib/require.min.js"></script>
+</html>

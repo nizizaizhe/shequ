@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>图片</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1"/>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <!--<link rel="shortcut icon" href="http://www.suning.com/favicon.ico" type="image/x-icon" />-->
+  <link rel="stylesheet" type="text/css" href="css/sm.min.css"/>
+  <link rel="stylesheet" type="text/css" href="css/picPage.css"/>
+</head>
+<body>
+  <div class="page-group">
+    <div id="page-ptr" class="page">
+      <header class="bar bar-nav picBar">
+        <a class="button button-link button-nav pull-left back" href="javascript:;" onClick="javascript:history.back(-1);">
+          <img src="images/all_icon_Back.png">
+        </a>
+        <h1 class="title pic-title">图片</h1>
+      </header>
+      <div class="content pull-to-refresh-content picContent infinite-scroll" data-distance="50">
+        <div class="pull-to-refresh-layer">
+            <div class="preloader"></div>
+            <div class="pull-to-refresh-arrow"></div>
+          </div>
+        <div class="picwrap" >
+          
+          <!--内容插入区-->
+        </div>
+         <!-- 加载提示符 -->
+        <div class="infinite-scroll-preloader hide">
+              <div class="preloader"></div>
+        </div>
+        <img class="mypreloader hide" src="images/end.png">
+      </div>
+    </div>
+    <!--模板-->
+    <script type="text/html" id="picTpl">
+      
+      {{each data as item index}}
+      <div class="picture-Content {{index==0?'toppic':''}}">
+        <a href="videoDetails.html?id={{item.id}}&memberId={{item.memberId}}&postType={{item.postType}}">
+          <div class="userHead">
+            <img src="{{item.avatar}}"/>
+            <span class="userName">{{item.name}}</span>
+            <span class="comefrom">来自&nbsp;&nbsp;{{item.groupName}}</span>
+          </div>
+          <span class="biaoti picbiaoti"><img src="images/tj_@1.png">{{item.title}}</span>
+          <div class="bigpicture h-piccontent">
+            {{if item.thumbnail == '' || item.thumbnail == null || item.thumbnail== undefined }}
+            <img src="images/mo1.png">
+            {{else}}
+            <img src="{{item.thumbnail}}">
+            {{/if}}
+          </div>
+        </a>
+        <div class="bottomicon">
+        
+          <div class="fabulous" id="{{item.id}}">
+            {{if item.isThumbUp==0}}
+            <img src="images/all_icon_Good_normal.png">
+            {{else}}
+            <img src="images/all_icon_Good_press.png">
+            {{/if}}
+            <span>{{item.goodNum}}</span>
+          </div>
+          <div class="reply">
+            <a href="videoDetails.html?id={{item.id}}&memberId={{item.memberId}}&postType={{item.postType}}">
+              <img src="images/all_icon_Comment_normal.png">
+              <span>{{item.commentTimes}}</span>
+            </a>
+          </div>
+          <div class="collection" articleId="{{item.id}}">
+            {{if item.isFavor==0}}
+            <img src="images/all_icon_Collection_normal.png">
+            {{else}}
+            <img src="images/all_icon_Collection_press.png">
+            {{/if}}
+            <span>收藏</span>
+          </div>
+        </div>
+      </div>
+      {{/each}}
+    </script>
+</body>
+<script type="text/javascript" data-main="js/picPage.js" src="js/lib/require.min.js"></script>
+</html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>文字贴</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1"/>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <!--<link rel="shortcut icon" href="http://www.suning.com/favicon.ico" type="image/x-icon" />-->
+  <link rel="stylesheet" type="text/css" href="css/sm.min.css"/>
+  <link rel="stylesheet" type="text/css" href="css/textPaste.css"/>
+</head>
+<body>
+<div class="page-group">
+  <div id="page-ptr" class="page">
+    <header class="bar bar-nav pasteBar">
+      <a class="button button-link button-nav pull-left back" href="javascript:;" onClick="javascript:history.back(-1);">
+        <img src="images/all_icon_Back.png">
+      </a>
+      <h1 class="title pic-title">帖子</h1>
+    </header>
+    <div class="content pull-to-refresh-content infinite-scroll" data-distance="50">
+      <div class="pastewrap" >
+      
+      
+      </div>
+    </div>
+    <!-- 加载提示符 -->
+    <div class="infinite-scroll-preloader">
+      <div class="preloader">
+      </div>
+    </div>
+  </div>
+  <script type="text/html" id="postTpl">
+    <div class="pull-to-refresh-layer">
+      <div class="preloader"></div>
+      <div class="pull-to-refresh-arrow"></div>
+    </div>
+    {{each data as item index}}
+    {{if item.postType == 3}}
+    <div class="c-plaintext topTextPaste">
+      <a href="textxq.html">
+        <div class="content-group">
+          <div class="left-content">
+            <div class="nickname">
+              <img src="{{item.avatar}}">
+              <div class="nickname-header">
+                <span>{{item.name}}</span>
+                <img src="images/all_icon_Female.png">
+                <div class="before">{{item.createTimeStr}}</div>
+              </div>
+            </div>
+            <div class="c-title">
+              <img src="images/all_icon_Hot.png"/>
+              <span>{{item.title}}</span>
+            </div>
+            <div class="post-text">
+              {{item.description}}
+            </div>
+          </div>
+        </div>
+      </a>
+      <div class="icon-group">
+        <div class="iconRight">
+          <div class="fabulous">
+            <img src="images/all_icon_Good_normal.png"/>
+            <span>{{item.goodNum}}</span>
+          </div>
+          <div class="reply">
+            <a href="#">
+              <img src="images/all_icon_Comment_normal.png"/>
+              <span>{{item.commentTimes}}</span>
+            </a>
+          </div>
+          <div class="collection">
+            <img src="images/all_icon_Collection_normal.png"/>
+            <span>收藏</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    {{else if item.postType== 5}}
+    <div class="c-plaintext text-video-content">
+      <a href="tzxq.html?id={{item.id}}&memberId={{item.memberId}}">
+      
+      
+      <div class="content-group">
+        <div class="left-content">
+          <div class="nickname">
+            <img src="images/all_icon_GroupLogo.png">
+            <div class="nickname-header">
+              <span>{{item.name}}</span>
+              <img src="images/all_icon_Female.png">
+              <div class="before">{{item.createTimeStr}}</div>
+            </div>
+          </div>
+          <div class="c-title">
+            <img src="images/all_icon_Hot.png">
+            <span>{{item.title}}</span>
+          </div>
+          <div class="post-text">
+            {{item.description}}
+          </div>
+        </div>
+        <div class="right-content">
+          <img src="{{puburl}}{{item.videoCover}}">
+          <img src="images/all_icon_small_Play.png">
+        </div>
+      </div>
+      </a>
+      <div class="icon-group">
+        <div class="iconRight">
+          <div class="fabulous">
+            <img src="images/all_icon_Good_normal.png">
+            <span>{{item.goodNum}}</span>
+          </div>
+          <div class="reply">
+            <a href="#">
+              <img src="images/all_icon_Comment_normal.png">
+              <span>{{item.commentTimes}}</span>
+            </a>
+          </div>
+          <div class="collection">
+            <img src="images/all_icon_Collection_normal.png">
+            <span>收藏</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    {{else if item.postType==4}}
+    <div class="c-plaintext text-picture-content">
+      <a href="tpluspicxq.html">
+      
+      
+      <div class="content-group">
+        <div class="left-content">
+          <div class="nickname">
+            <img src="images/all_icon_GroupLogo.png">
+            <div class="nickname-header">
+              <span>{{item.name}}</span>
+              <img src="images/all_icon_Female.png">
+              <div class="before">{{item.createTimeStr}}</div>
+            </div>
+      
+          </div>
+          <div class="c-title">
+            <img src="images/all_icon_Hot.png">
+            <span>{{item.name}}</span>
+          </div>
+          <div class="post-text">
+            {{item.description}}
+          </div>
+        </div>
+        <div class="right-content">
+          <img src="images/xiaotu.png">
+        </div>
+      </div>
+      </a>
+      <div class="icon-group">
+        <div class="iconRight">
+          <div class="fabulous">
+            <img src="images/all_icon_Good_normal.png">
+            <span>{{item.goodNum}}</span>
+          </div>
+          <div class="reply">
+            <a href="#">
+              <img src="images/all_icon_Comment_normal.png">
+              <span>{{item.commentTimes}}</span>
+            </a>
+          </div>
+          <div class="collection">
+            <img src="images/all_icon_Collection_normal.png">
+            <span>收藏</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    {{/if}}
+    {{/each}}
+  </script>
+</body>
+<script type="text/javascript" data-main="js/textPaste.js" src="js/lib/require.min.js"></script>
+</html>

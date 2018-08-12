@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" class="resethtml">
+<head>
+  <meta charset="UTF-8">
+  <title>浏览记录</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1"/>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <!--<link rel="shortcut icon" href="http://www.suning.com/favicon.ico" type="image/x-icon" />-->
+  <link rel="stylesheet" type="text/css" href="css/sm.min.css"/>
+  <link rel="stylesheet" type="text/css" href="css/all_list.css"/>
+</head>
+<body>
+  <div class="page-group">
+    <div id="page-ptr" class="page">
+      <header class="bar bar-nav bar-alllist">
+          <div class="backdiv"><a class="icon icon-left pull-left icon-alllist"></a></div>
+          <h1 class="title lgtitle">浏览记录</h1>
+          <a id="recordclear" href="javascript:;" style="color:#323232;font-size:.625rem;z-index:30">清除</a>
+      </header>
+      <div class="content" style="bottom:2.2rem">
+            <ul class="content-block release-pic-block">
+             
+            </ul> 
+      </div>
+  </div>
+  <script type="text/html" id="recordTpl">
+      {{each data as item index}}
+          {{if item.postType == 1}}
+              <li class="card h-card h-plaintext cardFlex" style="max-height: 6rem">
+                  <i class="collect-check hide collect-checkok"></i>
+                  <div class="collect-half">
+                    <a href="#" class="mrt75">
+                      <span>{{item.title}}</span>
+                      <p class="h-detailed">
+                        {{item.createTime}}
+                      </p>
+                    </a>
+                  </div>
+                  <div class="tianziright collect-half" style="padding:.5rem 0 .4rem 0">
+                    <a href="videoDetails.html?id={{item.id}}&postType={{item.postType}}" class="external" style="max-height: 4.825rem;overflow: hidden;">
+                      <img src="{{picurl}}{{item.imageUrl | getPicture}}">
+                    </a>
+                  </div>
+              </li>
+              <div class="concern-divider"></div>
+              {{else if item.postType == 2}}
+              <li class="card h-card h-plaintext cardFlex" style="max-height: 6rem">
+                <i class="collect-check hide collect-checkok"></i>
+                <div class="collect-half">                 
+                  <a href="#" class="mrt75">
+                    <span>{{item.title}}</span>
+                    <p class="h-detailed">
+                      {{item.createTime}}                  
+                    </p>
+                  </a>
+                </div>
+                <div class="tianziright card-revatie collect-half" style="padding:.5rem 0 .4rem 0">
+                  <a href="videoDetails.html?id={{item.id}}&postType={{item.postType}}" class="externa" style="max-height: 4.825rem;overflow: hidden;">
+                    <img src="{{picurl}}{{item.videoCover}}">
+                    <img src="images/detail.png">
+                  </a>
+                </div>
+              </li>  
+              <div class="concern-divider"></div>
+              {{else}}
+               <li class="card h-card h-plaintext">
+                  <i class="collect-check hide"></i>
+                  <a href="videoDetails.html?id={{item.id}}&postType={{item.postType}}" class="external">
+                    <div class="mrt75">{{item.title}}</div>
+                    <p class="h-detailed">
+                      {{item.createTime}}
+                    </p>
+                  </a>
+              </li>
+              <div class="concern-divider"></div>
+          {{/if}}
+      {{/each}}
+  </script>
+  <script type="text/html" id="withdwkong2-ulTpl2">
+        <div class="message-nolist">
+          <div class="message-noicon"></div>
+          <div>暂无记录</div>
+        </div>
+    </script>
+  <script type="text/javascript" data-main="js/record.js" src="js/lib/require.min.js"></script>
+</body>
+</html>

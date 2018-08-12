@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圈子内页</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!--<link rel="shortcut icon" href="http://www.suning.com/favicon.ico" type="image/x-icon" />-->
+    <link rel="stylesheet" type="text/css" href="css/sm.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/listofCircles.css"/>
+
+</head>
+<body>
+<div class="page-group">
+    <div id="page-tab" class="page c-page">
+        <header class="bar bar-nav neiyeBar">
+            <a class="button button-link button-nav pull-left back" href="javascript:;"
+               onClick="javascript:history.go(-1);">
+                <img src="images/all_icon_Back.png">
+            </a>
+            <span class="title circleName">圈子内页</span>
+            <span class="goxq">详情</span>
+        </header>
+        <div class="content">
+
+            <div class="buttons-tab" style="z-index:9999;">
+                <a href="#tab1" class="tab-link tablink active l-all button">全部</a>
+                <a href="#tab2" class="tab-link tablink  button l-post">贴子</a>
+                <a href="#tab3" class="tab-link tablink button l-pic">图片</a>
+                <a href="#tab4" class="tab-link tablink button l-video">视频</a>
+            </div>
+            <div class="tabs">
+                <div id="tab1" class="tab active ">
+                    <div class="content-block">
+                        <div class="content infinite-scroll" >
+                            <!--<div class="pull-to-refresh-layer">-->
+                                <!--<div class="preloader"></div>-->
+                                <!--<div class="pull-to-refresh-arrow"></div>-->
+                            <!--</div>-->
+                            <!-- 下面是正文 -->
+
+                            <div class="list-block listblock">
+                                <div class="card-container " id="card-container">
+                                    <div class="text-content">
+
+                                    </div>
+                                    <!--纯文字-->
+
+                                </div>
+                            </div>
+                            <!-- 加载提示符 -->
+                            <div class="infinite-scroll-preloader hide">
+                                <div class="preloader">
+                                </div>
+                            </div>
+                            <!-- 已经加载到底 -->
+                            <img class="mypreloader " src="images/end.png" >
+                        </div>
+
+                    </div>
+                </div>
+                <div id="tab2" class="tab">
+                    <div class="content-block">
+                        <div class="content " style="margin-top:1.6rem">
+
+                            <!-- 下面是正文 -->
+                            <div class="card-container" id="card-container2">
+                            </div>
+                            <!-- 加载提示符 -->
+                            <div class="infinite-scroll-preloader hide">
+                                <div class="preloader">
+                                </div>
+                            </div>
+                            <!-- 已经加载到底 -->
+                            <img class="mypreloader " src="images/end.png" >
+                        </div>
+                    </div>
+                </div>
+                <div id="tab3" class="tab">
+                    <div class="content-block">
+                        <div class="content " style="margin-top:2rem">
+                            <!-- 下面是正文 -->
+                            <div class="card-container" id="card-container3">
+
+                            </div>
+                            <!-- 加载提示符 -->
+                            <div class="infinite-scroll-preloader hide">
+                                <div class="preloader">
+                                </div>
+                            </div>
+                            <!-- 已经加载到底 -->
+                            <img class="mypreloader " src="images/end.png" >
+                        </div>
+                    </div>
+                </div>
+                <div id="tab4" class="tab">
+                    <div class="content-block">
+                        <div class="content  " style="margin-top:2rem">
+
+                            <!-- 下面是正文 -->
+                            <div class="card-container" id="card-container4">
+                                <!--纯视频-->
+
+                            </div>
+                            <!-- 加载提示符 -->
+                            <div class="infinite-scroll-preloader hide">
+                                <div class="preloader">
+                                </div>
+                            </div>
+                            <!-- 已经加载到底 -->
+                            <img class="mypreloader " src="images/end.png" >
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<!--公告模板-->
+<script type="text/html" id="noticeTpl">
+    <span class="Notice">公告</span>
+    <div class="text-body">{{data}}</div>
+    <!-- <div class="show-more">显示更多</div>-->
+</script>
+<!--纯文字模板-->
+<script type="text/html" id="plaintextTpl">
+    <div class="c-plaintext chunwenzi">
+        <div class="userHead">
+            <img src="{{avatar}}"/>
+            <span class="userName">{{name}}</span>
+            <span class="comefrom">{{createTimeStr}}</span>
+        </div>
+        <span class="biaoti picbiaoti"><img src="images/tj_@1.png">{{title}}</span>
+        <a href="videoDetails.html?id={{id}}&memberId={{memberId}}&postType={{postType}}">
+            <div class="post-text">
+                {{description}}
+            </div>
+        </a>
+        <div class="bottomicon">
+            <div class="fabulous" articleId="{{id}}">
+                {{if isThumbUp==0}}
+                <img src="images/all_icon_Good_normal.png">
+                {{else}}
+                <img src="images/all_icon_Good_press.png">
+                {{/if}}
+                <span>{{goodNum}}</span>
+            </div>
+            <div class="reply">
+                <a href="videoDetails.html?id={{id}}&memberId={{memberId}}&postType={{postType}}">
+                    <img src="images/all_icon_Comment_normal.png"/>
+                    <span>{{commentTimes}}</span>
+                </a>
+            </div>
+            <div class="collection" articleId="{{id}}">
+                {{if isFavor==0}}
+                <img src="images/all_icon_Collection_normal.png">
+                {{else}}
+                <img src="images/all_icon_Collection_press.png">
+                {{/if}}
+                <span>收藏</span>
+            </div>
+
+        </div>
+    </div>
+</script>
+<!--文字加视频模板-->
+<script type="text/html" id="textpulsvideoTpl">
+    <div class="text-plus-video">
+        <a href="videoDetails.html?id={{id}}&memberId={{memberId}}&postType={{postType}}">
+            <div class="card h-card cardFlex ">
+                <div class="tianzileft">
+                    <div class="picuserHead">
+                        <img src="{{avatar}}"/>
+                        <span class="userName">{{name}}</span>
+                        <span class="comefrom">来自&nbsp;&nbsp;{{groupName}}</span>
+                    </div>
+                    <span class="biaoti"><img src="images/tj_@1.png">{{title}}</span>
+                    <p class="h-detailed">{{description}}</p>
+
+                </div>
+                <div class="tianziright">
+                    {{if thumbnail == '' || thumbnail == null || thumbnail== undefined }}
+                    <img src="images/mo1.png">
+                    {{else}}
+                    <img class="h-vifdeoCover" src="{{picurl}}{{thumbnail}}"/>
+                    <img class="h-bfBtn" src="images/all_icon_small_Play.png">
+                    {{/if}}
+                </div>
+            </div>
+        </a>
+        <div class="h-icongroup">
+
+            <div class="fabulous" articleId="{{id}}">
+                {{if isThumbUp==0}}
+                <img src="images/all_icon_Good_normal.png">
+                {{else}}
+                <img src="images/all_icon_Good_press.png">
+                {{/if}}
+                <span>{{goodNum}}</span>
+            </div>
+            <div class="reply">
+                <a href="videoDetails.html?id={{id}}&memberId={{memberId}}&postType={{postType}}">
+                    <img src="images/all_icon_Comment_normal.png">
+                    <span>{{commentTimes}}</span>
+                </a>
+            </div>
+            <div class="collection" articleId="{{id}}">
+                {{if isFavor==0}}
+                <img src="images/all_icon_Collection_normal.png">
+                {{else}}
+                <img src="images/all_icon_Collection_press.png">
+                {{/if}}
+                <span>收藏</span>
+            </div>
+        </div>
+    </div>
+</script>
+<!--文字加图片模板-->
+<script type="text/html" id="textpulspicTpl">
+    <div class="text-plus-pictures ">
+        <a href="videoDetails.html?id={{id}}&memberId={{memberId}}&postType={{postType}}">
+            <div class="card h-card cardFlex">
+                <div class="tianzileft">
+                    <div class="picuserHead">
+                        <img src="{{avatar}}"/>
+                        <span class="userName">{{name}}</span>
+                        <span class="comefrom">来自&nbsp;&nbsp;{{groupName}}</span>
+                    </div>
+                    <span class="biaoti"><img src="images/tj_@1.png">{{title}}</span>
+                    <div class="h-detailed">
+                        {{description}}
+                    </div>
+                </div>
+                <div class="tianziright">
+                    {{if thumbnail == '' || thumbnail == null || thumbnail== undefined }}
+                    <img src="images/mo1.png">
+                    {{else}}
+                    <img class="h-rightpic" src="{{picurl}}{{thumbnail}}"/>
+                    {{/if}}
+                </div>
+            </div>
+        </a>
+        <div class="h-icongroup">
+            <div class="fabulous" articleId="{{id}}">
+                {{if isThumbUp==0}}
+                <img src="images/all_icon_Good_normal.png">
+                {{else}}
+                <img src="images/all_icon_Good_press.png">
+                {{/if}}
+                <span>{{goodNum}}</span>
+            </div>
+            <div class="reply">
+                <a href="videoDetails.html?id={{id}}&memberId={{memberId}}&postType={{postType}}">
+                    <img src="images/all_icon_Comment_normal.png">
+                    <span>{{commentTimes}}</span>
+                </a>
+            </div>
+            <div class="collection" articleId="{{id}}">
+                {{if isFavor==0}}
+                <img src="images/all_icon_Collection_normal.png">
+                {{else}}
+                <img src="images/all_icon_Collection_press.png">
+                {{/if}}
+                <span>收藏</span>
+            </div>
+        </div>
+    </div>
+</script>
+<!--纯图片模板-->
+<script type="text/html" id="purepicTpl">
+    <div class="picture-Content {{index==0?'toppic':''}}">
+        <a href="videoDetails.html?id={{id}}&memberId={{memberId}}&postType={{postType}}">
+            <div class="userHead">
+                <img src="{{avatar}}"/>
+                <span class="userName">{{name}}</span>
+                <span class="comefrom">来自&nbsp;&nbsp;{{groupName}}</span>
+            </div>
+            <span class="biaoti picbiaoti"><img src="images/tj_@1.png">{{title}}</span>
+            <div class="bigpicture h-piccontent">
+                {{if thumbnail == '' || thumbnail == null || thumbnail== undefined }}
+                <img src="images/mo2.png">
+                {{else}}
+                <img src="{{picurl}}{{thumbnail}}">
+                {{/if}}
+            </div>
+        </a>
+        <div class="bottomicon">
+            <div class="fabulous" articleId="{{id}}">
+                {{if isThumbUp==0}}
+                <img src="images/all_icon_Good_normal.png">
+                {{else}}
+                <img src="images/all_icon_Good_press.png">
+                {{/if}}
+                <span>{{goodNum}}</span>
+            </div>
+            <div class="reply">
+                <a href="videoDetails.html?id={{id}}&memberId={{memberId}}&postType={{postType}}">
+                    <img src="images/all_icon_Comment_normal.png">
+                    <span>{{commentTimes}}</span>
+                </a>
+            </div>
+            <div class="collection" articleId="{{id}}">
+                {{if isFavor==0}}
+                <img src="images/all_icon_Collection_normal.png">
+                {{else}}
+                <img src="images/all_icon_Collection_press.png">
+                {{/if}}
+                <span>收藏</span>
+            </div>
+        </div>
+    </div>
+</script>
+<!--纯视频模板-->
+<script type="text/html" id="purevideoTpl">
+    <div class="picture-Content video-content">
+        <a href="videoDetails.html?id={{id}}&memberId={{memberId}}&postType={{postType}}">
+            <div class="userHead">
+                <img src="{{avatar}}"/>
+                <span class="userName">{{name}}</span>
+                <span class="comefrom">{{createTimeStr}}</span>
+            </div>
+            <span class="biaoti picbiaoti"><img src="images/tj_@1.png">{{title}}</span>
+            <div class="bigpicture h-videocontent">
+                {{if thumbnail == '' || thumbnail == null || thumbnail== undefined}}
+                <img src="images/mo1.png">
+                {{else}}
+                <img class="videoCover" src="{{picurl}}{{thumbnail}}">
+                <img class="playIcon" src="images/all_icon_Big_Play.png">
+                {{/if}}
+            </div>
+        </a>
+        <div class="bottomicon">
+            <div class="fabulous" articleId="{{id}}">
+                {{if isThumbUp==0}}
+                <img src="images/all_icon_Good_normal.png">
+                {{else}}
+                <img src="images/all_icon_Good_press.png">
+                {{/if}}
+                <span>{{goodNum}}</span>
+            </div>
+            <div class="reply">
+                <a href="videoDetails.html?id={{id}}&memberId={{memberId}}&postType={{postType}}">
+                    <img src="images/all_icon_Comment_normal.png"/>
+                    <span>{{commentTimes}}</span>
+                </a>
+            </div>
+            <div class="collection" articleId="{{id}}">
+                {{if isFavor==0}}
+                <img src="images/all_icon_Collection_normal.png">
+                {{else}}
+                <img src="images/all_icon_Collection_press.png">
+                {{/if}}
+                <span>收藏</span>
+            </div>
+
+        </div>
+    </div>
+</script>
+<!--父模板-->
+<script type="text/html" id="prentTpl">
+    {{each data as item index}}
+    {{if item.postType == 3}}
+    {{include 'plaintextTpl' item}}
+    {{/if}}
+    {{if item.postType == 4}}
+    {{include 'textpulspicTpl' item}}
+    {{/if}}
+    {{if item.postType == 5}}
+    {{include 'textpulsvideoTpl' item}}
+    {{/if}}
+    {{if item.postType == 1}}
+    {{include 'purepicTpl' item}}
+    {{/if}}
+    {{if item.postType == 2}}
+    {{include 'purevideoTpl' item}}
+    {{/if}}
+    {{/each}}
+</script>
+<!--tab2模板-->
+<script type="text/html" id="tab2Tpl">
+    {{each data as item index}}
+    {{if item.postType == 3}}
+    <div class="c-plaintext chunwenzi">
+        <a href="videoDetails.html?id={{item.id}}&memberId={{item.memberId}}&postType={{item.postType}}">
+            <div class="userHead">
+                <img src="{{item.avatar}}"/>
+                <span class="userName">{{item.name}}</span>
+                <span class="comefrom">{{item.createTimeStr}}</span>
+            </div>
+            <span class="biaoti picbiaoti"><img src="images/tj_@1.png">{{item.title}}</span>
+
+            <div class="post-text">
+                {{item.description}}
+            </div>
+        </a>
+        <div class="bottomicon">
+            <div class="fabulous" articleId="{{id}}">
+                {{if item.isThumbUp==0}}
+                <img src="images/all_icon_Good_normal.png">
+                {{else}}
+                <img src="images/all_icon_Good_press.png">
+                {{/if}}
+                <span>{{item.goodNum}}</span>
+            </div>
+            <div class="reply">
+                <a href="videoDetails.html?id={{item.id}}&memberId={{item.memberId}}&postType={{item.postType}}">
+                    <img src="images/all_icon_Comment_normal.png"/>
+                    <span>{{item.commentTimes}}</span>
+                </a>
+            </div>
+            <div class="collection" articleId="{{id}}">
+                {{if item.isFavor==0}}
+                <img src="images/all_icon_Collection_normal.png">
+                {{else}}
+                <img src="images/all_icon_Collection_press.png">
+                {{/if}}
+                <span>收藏</span>
+            </div>
+
+        </div>
+    </div>
+    {{else if item.postType==4}}
+    <div class="text-plus-pictures ">
+        <a href="videoDetails.html?id={{item.id}}&memberId={{item.memberId}}&postType={{item.postType}}">
+            <div class="card h-card cardFlex">
+                <div class="tianzileft">
+                    <div class="picuserHead">
+                        <img src="{{item.avatar}}"/>
+                        <span class="userName">{{item.name}}</span>
+                        <span class="comefrom">来自&nbsp;&nbsp;{{item.groupName}}</span>
+                    </div>
+                    <span class="biaoti"><img src="images/tj_@1.png">{{item.title}}</span>
+                    <div class="h-detailed">
+                        {{item.description}}
+                    </div>
+                </div>
+                <div class="tianziright">
+                    {{if item.thumbnail == '' || item.thumbnail == null || item.thumbnail== undefined }}
+                    <img src="images/mo2.png">
+                    {{else}}
+                    <img class="h-rightpic" src="{{picurl}}{{item.thumbnail}}"/>
+                    {{/if}}
+                </div>
+            </div>
+        </a>
+        <div class="h-icongroup">
+            <div class="fabulous" articleId="{{item.id}}">
+                {{if item.isThumbUp==0}}
+                <img src="images/all_icon_Good_normal.png">
+                {{else}}
+                <img src="images/all_icon_Good_press.png">
+                {{/if}}
+                <span>{{item.goodNum}}</span>
+            </div>
+            <div class="reply">
+                <a href="videoDetails.html?id={{item.id}}&memberId={{item.memberId}}&postType={{item.postType}}">
+                    <img src="images/all_icon_Comment_normal.png">
+                    <span>{{item.commentTimes}}</span>
+                </a>
+            </div>
+            <div class="collection" articleId="{{item.id}}">
+                {{if item.isFavor==0}}
+                <img src="images/all_icon_Collection_normal.png">
+                {{else}}
+                <img src="images/all_icon_Collection_press.png">
+                {{/if}}
+                <span>收藏</span>
+            </div>
+        </div>
+    </div>
+    {{else}}
+    <div class="text-plus-video">
+        <a href="videoDetails.html?id={{item.id}}&memberId={{item.memberId}}&postType={{item.postType}}">
+            <div class="card h-card cardFlex ">
+                <div class="tianzileft">
+                    <div class="picuserHead">
+                        <img src="{{puburl}}{{item.avatar}}"/>
+                        <span class="userName">{{item.name}}</span>
+                        <span class="comefrom">来自&nbsp;&nbsp;{{item.groupName}}</span>
+                    </div>
+                    <span class="biaoti"><img src="images/tj_@1.png">{{item.title}}</span>
+                    <p class="h-detailed">{{item.description}}</p>
+
+                </div>
+                <div class="tianziright">
+                    {{if item.thumbnail == '' || item.thumbnail == null || item.thumbnail== undefined }}
+                    <img src="images/mo1.png">
+                    {{else}}
+                    <img class="h-vifdeoCover" src="{{picurl}}{{item.thumbnail}}"/>
+                    <img class="h-bfBtn" src="images/all_icon_small_Play.png">
+                    {{/if}}
+                </div>
+            </div>
+        </a>
+        <div class="h-icongroup">
+            <div class="fabulous" articleId="{{item.id}}">
+                {{if item.isThumbUp==0}}
+                <img src="images/all_icon_Good_normal.png">
+                {{else}}
+                <img src="images/all_icon_Good_press.png">
+                {{/if}}
+                <span>{{item.goodNum}}</span>
+            </div>
+            <div class="reply">
+                <a href="videoDetails.html?id={{item.id}}&memberId={{item.memberId}}&postType={{item.postType}}">
+                    <img src="images/all_icon_Comment_normal.png">
+                    <span>{{item.commentTimes}}</span>
+                </a>
+            </div>
+            <div class="collection" articleId="{{item.id}}">
+                {{if item.isFavor==0}}
+                <img src="images/all_icon_Collection_normal.png">
+                {{else}}
+                <img src="images/all_icon_Collection_press.png">
+                {{/if}}
+                <span>收藏</span>
+            </div>
+        </div>
+    </div>
+
+    {{/if}}
+    {{/each}}
+</script>
+<!--tab3模板-->
+<script type="text/html" id="tab3Tpl">
+    {{each data as item index}}
+    <div class="picture-Content {{index==0?'toppic':''}}">
+        <a href="videoDetails.html?id={{item.id}}&memberId={{item.memberId}}&postType={{item.postType}}">
+            <div class="userHead">
+                <img src="{{item.avatar}}"/>
+                <span class="userName">{{item.name}}</span>
+                <span class="comefrom">来自&nbsp;&nbsp;{{item.groupName}}</span>
+            </div>
+            <span class="biaoti picbiaoti"><img src="images/tj_@1.png">{{item.title}}</span>
+            <div class="bigpicture h-piccontent">
+                {{if item.thumbnail == '' || item.thumbnail == null || item.thumbnail== undefined }}
+                <img src="images/mo1.png">
+                {{else}}
+                <img src="{{picurl}}{{item.thumbnail}}">
+                {{/if}}
+            </div>
+        </a>
+        <div class="bottomicon">
+            <div class="fabulous" articleId="{{item.id}}">
+                {{if item.isThumbUp==0}}
+                <img src="images/all_icon_Good_normal.png">
+                {{else}}
+                <img src="images/all_icon_Good_press.png">
+                {{/if}}
+                <span>{{item.goodNum}}</span>
+            </div>
+            <div class="reply">
+                <a href="videoDetails.html?id={{item.id}}&memberId={{item.memberId}}&postType={{item.postType}}">
+                    <img src="images/all_icon_Comment_normal.png">
+                    <span>{{item.commentTimes}}</span>
+                </a>
+            </div>
+            <div class="collection" articleId="{{item.id}}">
+                {{if item.isFavor==0}}
+                <img src="images/all_icon_Collection_normal.png">
+                {{else}}
+                <img src="images/all_icon_Collection_press.png">
+                {{/if}}
+                <span>收藏</span>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+</script>
+<!--tab4模板-->
+<script type="text/html" id="tab4Tpl">
+    {{each data as item index}}
+    <div class="picture-Content video-content">
+        <a href="videoDetails.html?id={{item.id}}&memberId={{item.memberId}}&postType={{item.postType}}">
+            <div class="userHead">
+                <img src="{{puburl}}{{item.avatar}}"/>
+                <span class="userName">{{item.name}}</span>
+                <span class="comefrom">{{item.createTimeStr}}</span>
+            </div>
+            <span class="biaoti picbiaoti"><img src="images/tj_@1.png">{{item.title}}</span>
+            <div class="bigpicture h-videocontent">
+                {{if item.thumbnail == '' || item.thumbnail == null || item.thumbnail== undefined }}
+                <img src="images/mo1.png">
+                {{else}}
+                <img class="videoCover" src="{{picurl}}{{item.thumbnail}}">
+                <img class="playIcon" src="images/all_icon_Big_Play.png">
+                {{/if}}
+            </div>
+        </a>
+        <div class="bottomicon">
+            <div class="fabulous" articleId="{{item.id}}">
+                {{if item.isThumbUp==0}}
+                <img src="images/all_icon_Good_normal.png">
+                {{else}}
+                <img src="images/all_icon_Good_press.png">
+                {{/if}}
+                <span>{{item.goodNum}}</span>
+            </div>
+            <div class="reply">
+                <a href="videoDetails.html?id={{item.id}}&memberId={{item.memberId}}&postType={{item.postType}}">
+                    <img src="images/all_icon_Comment_normal.png"/>
+                    <span>{{item.commentTimes}}</span>
+                </a>
+            </div>
+            <div class="collection" articleId="{{item.id}}">
+                {{if item.isFavor==0}}
+                <img src="images/all_icon_Collection_normal.png">
+                {{else}}
+                <img src="images/all_icon_Collection_press.png">
+                {{/if}}
+                <span>收藏</span>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+</script>
+</body>
+<script type="text/javascript" data-main="js/listofCircles.js" src="js/lib/require.min.js"></script>
+</html>

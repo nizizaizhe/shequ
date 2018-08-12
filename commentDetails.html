@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>评论详情</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!--<link rel="stylesheet" type="text/css" href="css/commentDetails.css"/>-->
+</head>
+<style>
+    header, footer, main {
+        display: block;
+    }
+
+    header {
+        position: fixed;
+        height: 50px;
+        left: 0;
+        right: 0;
+        top: 0;
+        background: #5b522f;
+    }
+
+    footer {
+        position: fixed;
+        height: 34px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: #2ac845;
+    }
+
+    main {
+        /* main绝对定位，进行内部滚动 */
+        position: absolute;
+        width: 100%;
+        top: 50px;
+        bottom: 34px;
+        /* 使之可以滚动 */
+        overflow-y: scroll;
+        /* 增加该属性，可以增加弹性 */
+        -webkit-overflow-scrolling: touch;
+    }
+    main .content {
+        width: 100%;
+        max-height: 1000px;
+    }
+
+</style>
+<body>
+ <!--&lt;!&ndash;page集合的容器，里面放多个平行的.page，其他.page作为内联页面由路由控制展示 &ndash;&gt;-->
+<!--<div id="main">-->
+    <!--<header class="header">-->
+        <!--<a class="goback" href="javascript:;" onclick="javascript:history.back(-1);">-->
+            <!--<img class="btnback" src="images/all_icon_Back.png">-->
+        <!--</a>-->
+        <!--<span class="titleDetails">帖子详情</span>-->
+        <!--<span class="islouzhu">楼主</span>-->
+        <!--<span class="pinglun">评论</span>-->
+    <!--</header>-->
+    <!--<article class="article">-->
+
+    <!--</article>-->
+
+<!--</div>-->
+<!--<footer id="footer" class="footer">-->
+    <!--<form>-->
+        <!--<input type="text" class="iptReplay" placeholder="槽点太多,来BB两句吧~"/>-->
+    <!--</form>-->
+<!--</footer>-->
+
+ <!-- fixed定位的头部 -->
+ <header>
+
+ </header>
+
+ <!-- 可以滚动的区域 -->
+ <main>
+     <!-- 内容在这里... -->
+     <ul class="content">
+
+         <li>14</li>
+         <li>15</li>
+         <li>16</li>
+         <li>17</li>
+         <li>18</li>
+         <li>19</li>
+         <li>20</li>
+         <li>1</li>
+         <li>12</li>
+         <li>13</li>
+         <li>14</li>
+         <li>15</li>
+         <li>16</li>
+         <li>17</li>
+         <li>18</li>
+         <li>19</li>
+         <li>20</li>
+         <li>1</li>
+         <li>12</li>
+         <li>13</li>
+         <li>14</li>
+         <li>15</li>
+         <li>16</li>
+         <li>17</li>
+         <li>18</li>
+         <li>19</li>
+         <li>20</li>
+         <li>1</li>
+         <li>12</li>
+         <li>13</li>
+     </ul>
+ </main>
+
+ <!-- fixed定位的底部 -->
+ <footer>
+     <input type="text" style="width: 80%" placeholder="Footer..."/>
+     <button class="submit">提交</button>
+ </footer>
+
+
+
+</body>
+<script src="js/lib/Zepto.min.js" type="application/javascript"></script>
+<script>
+    var interval=null;
+    $(function() {
+        $('input').on('focus', function() {
+
+            interval = setInterval(function() {
+                document.body.scrollTop = document.body.scrollHeight;
+            }, 500)
+    })
+    $('input').on('blur', function(){
+        clearInterval(interval);
+    })
+
+
+
+
+
+</script>
+
+<!--<script type="text/javascript" data-main="js/commentDetails.js" src="js/lib/require.min.js"></script>-->
+</html>

@@ -1,0 +1,638 @@
+boby{
+    background: #f5f5f5;
+}
+ul.card-content,ul.card-content li{
+    list-style-type: none;
+    padding: 0;
+    margin:0
+}
+.h-searchbutton img{
+    width:0.9rem;
+    height:0.9rem;
+
+}
+.card-content-inner{
+    display: flex;
+}
+.topbar{
+    display:inline-block;
+    flex:1 1 100%;
+    text-align: center;
+
+}
+.topbar img{
+    /*width:1.75rem;*/
+    /*height:1.75rem;*/
+}
+/*.h-content{*/
+    /*margin:0 !important;*/
+    /*padding:0 !important;*/
+/*}*/
+.h-card{
+    margin:0;
+    /*border-bottom: 0.1rem solid #f5f5f5;*/
+    /*margin-top: 1rem;*/
+}
+.content {
+    position: absolute;
+    top: -2.2rem;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+}
+.card{
+    background: none;
+    box-shadow: 0 0 0 rgba(0,0,0,0);
+    /*margin: .5rem;*/
+    position: relative;
+    border-radius: .1rem;
+    font-size: .7rem;
+}
+
+.h-inner{
+    padding:0;
+
+    /*height: 10.5rem;*/
+}
+.h-inner img{
+    width: 100%;
+    height: 11.9rem;
+}
+.icongroup{
+    width: 100%;
+    height: 2.15rem;
+    line-height: 2.15rem;
+    background: #fff;
+    display: flex;
+    justify-content: space-around;
+    border-top: 0.1rem solid #f5f5f5;
+    margin-top: 0.2rem;
+}
+.iconLeft{
+    width:50%;
+    padding-left: 0.5rem;
+    position: relative;
+}
+.iconRight{
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+}
+.icongroup .iconLeft img{
+    width: 1.25rem;
+    height: 1.25rem;
+    position: absolute;
+    top: 50%;
+    left: 0.5rem;
+    transform: translateY(-50%);
+    border-radius: 50%;
+}
+.iconLeft>a>span{
+    margin-left: 1.6rem;
+}
+.icongroup a{
+    /*margin-left:0.75rem;*/
+}
+.icongroup .iconRight img{
+    width:0.7rem;
+    height:0.7rem;
+    /*vertical-align: super;*/
+}
+.iconLeft span,.iconRight span{
+    vertical-align: middle;
+}
+.h-plaintext{
+
+    width: 100%;
+    /*height:6.55rem;*/
+    /*line-height: 1rem;*/
+
+
+}
+.h-detailed{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    margin-top: 0.9rem;
+    font-size: 0.7rem;
+    color: #7e7a7a;
+    line-height: 0.9rem;
+    word-break: break-all;
+    padding-right: 0.4rem;
+}
+.cardFlex{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+
+}
+.cardFlex .tianzileft{
+    padding-left: 0.5rem;
+    width:50%;
+}
+.cardFlex .tianziright{
+    /*width:50%;*/
+}
+.tianzileft span{
+    /*font-size: 0.6rem;*/
+    /*color: #323232;*/
+}
+.tianzileft>a{
+    padding-top: 0.375rem;
+}
+.tianzileft>a>span{
+    font-size: 0.85rem;
+    color: #323232;
+}
+.cardFlex>p{
+    line-height: 1.8rem;
+    margin: 0;
+}
+.cardFlex .tianziright{
+    padding-top: 1.95rem;
+    /* padding-bottom: 0.975rem; */
+    padding-right: 0.5rem;
+    width: 50%;
+}
+.content-block.h-content{
+    margin:-2rem 0;
+    padding:0rem;
+}
+.tabs a{
+    width: 100%;
+    display: inline-block;
+    /*overflow: hidden;*/
+    text-decoration:none;
+    out-line: none;
+    color: #000;
+}
+.xiaoShipin{
+    width:100%;
+}
+.shipin-header{
+     position: absolute;
+    top:0.4rem;
+    left:0.4rem;
+    z-index: 999;
+    color: #fff;
+}
+.h-xiaoShipin{
+    position:relative ;
+
+}
+#bofang{
+    width:4rem;
+    height:4rem;
+    position: absolute;
+    top:50%;
+    left:50%;
+    margin-left:-2rem;
+    margin-top:-2rem;
+}
+.head-text{
+    height: 2.15rem;
+    font-size: 0.7rem;
+}
+.h-switch{
+    border-radius: 0.3rem;
+    background: #fff;
+
+}
+.h-switch p{
+    font-size: 0.75rem;
+    color:#323232;
+}
+.topbar p{
+    display: block;
+    -webkit-margin-before: 0;
+    -webkit-margin-after: 0;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+}
+.card-revatie{
+    position: relative;
+    padding-top: 0.9rem;
+    padding-bottom: 0.975rem;
+    padding-right: 0.5rem;
+}
+.h-bfBtn{
+    width: 2rem;
+    height: 2rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: 3.5rem;
+    margin-top: -0.5rem;
+}
+.h-vifdeoCover{
+    width: 100%;
+    /*height: 6.05rem;*/
+
+}
+.text-paste{
+    /*padding:0.75rem 0rem 0;*/
+    /*border-bottom: 12.5px solid #f5f5f5;*/
+    background: #fff;
+    margin-top: 0.4rem;
+}
+
+.text-paste>a span{
+    /*font-size: 0.6rem;*/
+    /*color: #323232;*/
+}
+.text-paste>a:last-child>span{
+    font-size: 0.85rem;
+    color: #323232;
+}
+.text-paste>a:last-of-type span{
+    /*font-size: 0.85rem;*/
+    /*color: #323232;*/
+}
+.icongroup span{
+    font-size: 0.65rem;
+    color:#888888;
+    margin-left: 0.5rem;
+    vertical-align: middle;
+}
+.pure-picture{
+    /*border-bottom: 12.5px solid #f5f5f5;*/
+    background: #fff;
+    margin-top: 0.4rem;
+}
+
+
+.buttons-tab .button{
+    height:100%;
+    line-height: 2.2rem;
+    font-size: 0.9rem;
+    color:#323232;
+}
+.h-searchbutton{
+    padding-right: 0.85rem;
+    padding-top: 0.6rem;
+}
+p{
+    -webkit-margin-before: 0em;
+    -webkit-margin-after: 0em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+}
+.text-plus-video{
+
+    background: #fff;
+    margin-top: 0.4rem;
+}
+
+.text-plus-video .h-card{
+    width: 18.75rem;
+    height: 9.35rem;
+}
+
+.text-plus-pictures {
+    /*border-bottom: 12.5px solid #f5f5f5;*/
+    background: #fff;
+    margin-top: 0.4rem;
+}
+.text-plus-pictures .h-card{
+    /*width: 18.75rem;*/
+    /*height: 9.35rem;*/
+}
+.pure-video{
+
+    background: #fff;
+    margin-top: 0.4rem;
+}
+
+.text-paste>a{
+    padding-left:0.5rem;
+}
+.h-number,.h-time{
+    width:2.6rem;
+    height:1.05rem;
+    line-height: 1.05rem;
+    border-radius: 0.4rem;
+    position: absolute;
+    bottom:1rem;
+    right:1rem;
+    background: #221811;
+    text-align: center;
+    font-size: 0.8rem;
+    color:#fff;
+}
+
+.iconRight>div{
+   position: relative;
+}
+.iconRight>div img{
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+}
+.h-switch-warp{
+    background: #f5f5f5;
+    /*padding:0.75rem;*/
+}
+
+.unconcerned {
+    width: 100%;
+    height: 5.6rem;
+}
+.unconcerned div:nth-child(1) {
+    margin-top: 0.9rem;
+    color: #808080;
+}
+.unconcerned div {
+    text-align: center;
+    font-size: 0.573rem;
+}
+.followBtn {
+    margin: 0.8rem auto 0;
+    width: 3.5rem;
+    height: 1rem;
+    line-height: 1rem;
+    color: #73421b;
+    border: 1px solid #e6e6e6;
+    border-radius: 4px;
+}
+.recommend {
+    margin-top: 0.625rem;
+    background: #fff;
+}
+.recommend-head {
+    width: 100%;
+    height: 2.2rem;
+    line-height: 2.2rem;
+    padding: 0 0.85rem 0 1rem;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #e6e6e6;
+}
+.xinquhead span:nth-child(1) {
+    font-size: 0.675rem;
+    color: #323232;
+}
+
+.recommendedlist {
+    padding: 0 0 0 1.35rem;
+    width: 100%;
+    height: 3.75rem;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+}
+.circle-head {
+    line-height: 4.4rem;
+}
+.circle-head img {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+.middle-content {
+    width: 14.75rem;
+    position: relative;
+    padding-right: 1rem;
+    border-bottom: 1px solid #e6e6e6;
+    margin-left: 1rem;
+}
+.circleName {
+    font-size: 0.625rem;
+    color: #323232;
+    display: inline-block;
+    margin-top: 1rem;
+}
+.c-summary {
+    font-size: 0.525rem;
+    color: #808080;
+    display: inline-block;
+    vertical-align: top;
+}
+.add-attention {
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    right: 1rem;
+    transform: translateY(-50%);
+}
+.add-attention img {
+    width: 1rem;
+    height: 1rem;
+}
+.my-circle {
+    width: 100%;
+    height: 7.8rem;
+    background: #fff;
+}
+.homeunconcerned{
+    padding-top: 1rem;
+    margin-top: 0.6rem;
+}
+.xinquhead{
+    width: 100%;
+    height: 2.2rem;
+    line-height: 2.2rem;
+    padding: 0 0.85rem 0 1rem;
+    display: flex;
+    justify-content: space-between;
+}
+.hide{
+ display: none;
+}
+.if-you{
+    background: #fff;
+}
+.quanname{
+    font-size: 0.625rem;
+    color: #323232;
+    display: block;
+    margin-top: 1rem;
+}
+#card-content2,#card-content3{
+    margin-top:1rem;
+}
+.bottomRight div {
+    display: inline-block;
+}
+.bottomRight div {
+    display: inline-block;
+}
+.reply, .collection {
+    /*margin-left: 1.1rem;*/
+}
+.reply, .collection, .fabulous {
+    position: relative;
+}
+.video-content a {
+    display: block;
+}
+.reply img, .collection img, .fabulous img {
+    width: 0.7rem;
+    height: 0.7rem;
+    vertical-align: middle;
+}
+.reply span, .collection span, .fabulous span {
+    font-size: 0.65rem;
+    color: #888888;
+    vertical-align: middle;
+}
+.bottomRight{
+    margin-right:0.4rem;
+}
+
+
+/*新版样式*/
+.userHead{
+    padding-left:0.5rem;
+    padding-top:0.775rem;
+}
+.userHead img{
+    width:1.6rem;
+    height:1.7rem;
+    border-radius: 50%;
+}
+.userName{
+    vertical-align: top;
+    margin-left: 0.2rem;
+    color:#fe9705;
+    font-size: 0.6rem;
+}
+.comefrom{
+    margin-left: -1.9rem;
+    color:#247f99;
+    font-size: 0.6rem;
+}
+.biaoti{
+    font-size: 0.9rem;
+    color:#5c5c5c;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 0.4rem;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+}
+.biaoti img{
+    display: inline-block;
+    vertical-align: middle;
+    margin-right:0.5rem;
+}
+.picbiaoti{
+    padding-left:0.5rem;
+}
+.h-piccontent,.h-videocontent{
+    margin-top:0.4rem;
+    padding:0 0.5rem;
+}
+.h-icongroup{
+    width: 100%;
+    height: 2.15rem;
+    line-height: 2.15rem;
+    background: #fff;
+    display: flex;
+    justify-content: space-around;
+    border-top: 0.1rem solid #f5f5f5;
+    margin-top: 0.2rem;
+}
+.home-container{
+    margin-top:1.1rem;
+}
+body.h-body{
+    background-color: #eee;
+}
+#card-content{
+    margin-top:0.4rem;
+}
+.buttons-tab .button.active.tablink{
+    color: #323232;
+    border-color: #323232;
+    z-index: 100;
+    font-weight: bold;
+}
+.buttons-tab .button.tablink{
+    color:#323232;
+}
+.h-rightpic{
+    /*width: 100%;*/
+    /*height: 6.05rem;*/
+}
+.picuserHead {
+    padding-top: 0.775rem;
+}
+.picuserHead img {
+    width: 1.6rem;
+    height: 1.7rem;
+    border-radius: 50%;
+}
+.cardFlex .tianzileft {
+    padding-left: 0.5rem;
+    width: 50%;
+}
+.picuserHead {
+    padding-top: 0.775rem;
+}
+.userName {
+    vertical-align: top;
+    margin-left: 0.2rem;
+    color: #fe9705;
+    font-size: 0.6rem;
+}
+.comefrom {
+    margin-left: -1.9rem;
+    color: #247f99;
+    font-size: 0.6rem;
+}
+.biaoti {
+    font-size: 0.9rem;
+    color: #5c5c5c;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 0.4rem;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+}
+.biaoti img {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 0.5rem;
+}
+.h-detailed {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    margin-top: 0.9rem;
+    font-size: 0.7rem;
+    color: #7e7a7a;
+    line-height: 0.9rem;
+    word-break: break-all;
+    padding-right: 0.4rem;
+}
+.cardFlex .tianziright {
+    padding-top: 1.95rem;
+    /* padding-bottom: 0.975rem; */
+    padding-right: 0.5rem;
+    width: 50%;
+}
+.h-rightpic {
+    width: 100%;
+    /*height: 6.05rem;*/
+}
+.h-icongroup {
+    width: 100%;
+    height: 2.15rem;
+    line-height: 2.15rem;
+    background: #fff;
+    display: flex;
+    justify-content: space-around;
+    border-top: 0.1rem solid #f5f5f5;
+    margin-top: 0.2rem;
+}
+.mypreloader{display: block;margin: 0 auto;}
+.mypreloader.hide{display: none}

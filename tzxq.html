@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>帖子详情</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1"/>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <!--<link rel="shortcut icon" href="http://www.suning.com/favicon.ico" type="image/x-icon" />-->
+  <link rel="stylesheet" type="text/css" href="css/sm.min.css"/>
+  <link rel="stylesheet" type="text/css" href="css/tzxq.css"/>
+</head>
+<body>
+  <div class="page-group">
+    <div id="page-infinite-scroll-bottom" class="page">
+      <header class="bar bar-nav">
+        <a class="button button-link button-nav pull-left back" href="javascript:;" onClick="javascript:history.back(-1);">
+          <span class="icon icon-left"></span></a>
+        <h1 class="title">帖子详情</h1>
+        <span class="functional-keys"><img src="images/all_icon_option.png"></span>
+      </header>
+      <div class="content infinite-scroll" data-distance="100">
+        <div class="list-block listblock">
+          <div class="enwrap">
+            <!--<div class="quanzi">-->
+              <!--<span class="quanziLogo"><img src="images/all_icon_GroupLogo.png"></span>-->
+              <!--<span class="quanziName">圈子的名称</span>-->
+              <!--<span class="gzquanzi"><img src="images/group_btn_Collection_press.png"></span>-->
+            <!--</div>-->
+            <!--<div class="postContent">-->
+              <!--<div class="left-content">-->
+                <!--<div class="c-title">-->
+                  <!--<span>帖子标题，帖子标题</span>-->
+      <!---->
+      <!---->
+      <!---->
+                <!--</div>-->
+                <!--<div class="nickname">-->
+                  <!--<img src="images/all_icon_GroupLogo.png">-->
+        <!---->
+                  <!--<div class="nickname-header">-->
+                    <!--<span>用户昵称</span>-->
+                    <!--<img src="images/all_icon_Female.png">-->
+                    <!--<div class="before">1小时前</div>-->
+                  <!--</div>-->
+      <!---->
+                <!--</div>-->
+      <!---->
+                <!--<div class="post-text">-->
+                  <!--帖子正文帖子正文帖子正文帖子正文帖子正文帖子正文帖子正文-->
+                  <!--帖子正文帖子正文帖子正文帖子正文帖子正文帖子正文帖子正文-->
+                  <!--帖子正文帖子正文帖子正文帖子正文帖子正文帖子正文帖子正文-->
+                  <!--文帖子正文文帖子正文文帖子正文文帖子正文文帖子正文文帖子-->
+                <!--</div>-->
+              <!--</div>-->
+  <!---->
+            <!--</div>-->
+            <!--<div class="videoorpic">-->
+              <!--<video controls webkit-playsinline playsinline>-->
+                <!--<source src="data/xvideos.com_de1e6051e46b47b8441a29b29af72e1d.mp4">-->
+              <!--</video>-->
+            <!--</div>-->
+          </div>
+          
+          <ul class="full-reply">
+            <span class="qbhf">全部回复</span>
+            
+            <li>
+              <!--<div class="nickname ">-->
+                <!--<img src="images/all_icon_GroupLogo.png">-->
+                <!--<div class="nickname-header">-->
+                  <!--<span class="vdUser">walker</span>-->
+                  <!--<img src="images/all_icon_Female.png">-->
+          <!---->
+                  <!--<div class="before">1F&nbsp;1小时前</div>-->
+                <!--</div>-->
+              <!--</div>-->
+              <!--<div class="post-text post">-->
+                <!--拍的不错-->
+              <!--</div>-->
+              <!--<span class="godetail"><a href="http://www.baidu.com" style="display: block"><img src="images/all_icon_small_Next.png"></a></span>-->
+              <ul class="vd-twoLevelList">
+                <!--<li>-->
+                  <!--<span class="vdUser">大路</span> <span class="landlord">楼主</span>：<span class="crnr">多谢多谢</span>-->
+                <!--</li>-->
+                <!--<li><span class="vdUser">walker</span>:<span class="crnr">看把你开心的</span></li>-->
+                <!--<li class="more-comments"><a href="#">更多评论></a></li>-->
+              </ul>
+            </li>
+            
+          </ul>
+          <div class="return-box">
+            <input id="return-box" type="text" placeholder="说点什么">
+            <div class="iconright">
+              <!--<div class="reply">-->
+                <!--<a href="#">-->
+                  <!--<img src="images/all_icon_Comment_normal.png">-->
+                  <!--<span>20</span>-->
+                <!--</a>-->
+              <!--</div>-->
+              <!--<div class="fabulous">-->
+                <!--<img src="images/all_icon_Good_normal.png">-->
+                <!--<span>10</span>-->
+              <!--</div>-->
+            </div>
+          </div>
+          <div class="function-list ">
+    
+            <div class="openList">
+              <img class="sanjiao" src="images/reply_frame_triangle.png">
+              <ul class="ulContent">
+                <li class="liContent looklandlord"><span><img src="images/reply_icon_sender_normal.png"></span><span>只看楼主</span></li>
+                <li class="liContent timepaixu"><span><img src="images/reply_icon_time_normal.png"></span><span>时间排序</span></li>
+                <li class="liContent shoucang"><span><img src="images/reply_icon_collection_normal.png"></span><span>收藏</span></li>
+                <li class="liContent xiazai"><span><img src="images/reply_icon_download_1.png"></span><span>下载</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--文字加视频模板-->
+  <script type="text/html" id="enwrapTpl">
+    <div class="quanzi">
+      <span class="quanziLogo"><img src="{{puburl}}{{data.groupLogo}}"></span>
+      <span class="quanziName">{{data.groupName}}</span>
+      <span class="gzquanzi"><img src="images/group_btn_Collection_normal.png"></span>
+      <span class="gzquanzi"><img src="images/group_btn_Collection_normal.png"></span>
+    </div>
+    <div class="postContent">
+      <div class="left-content">
+        <div class="c-title">
+            <span>{{data.title}}</span>
+        </div>
+        <div class="nickname">
+          <img src="{{puburl}}{{data.avatar}}">
+          <div class="nickname-header">
+            <span>{{data.name}}</span>
+            <img src="images/all_icon_Female.png">
+            <div class="before">1小时前</div>
+          </div>
+        </div>
+        <div class="post-text">
+          {{data.description}}
+        </div>
+      </div>
+    </div>
+    <div class="videoorpic">
+      <video controls webkit-playsinline playsinline>
+        <source src="{{puburl}}{{data.videoUrl}}">
+      </video>
+    </div>
+  </script>
+  <!--底部模板-->
+  <script type="text/html" id="bottomTpl">
+    <div class="reply">
+      <a href="#">
+        <img src="images/all_icon_Comment_normal.png">
+        <span class="dianzan">{{data.goodNum}}</span>
+      </a>
+    </div>
+    <div class="fabulous">
+      <img src="images/all_icon_Good_normal.png">
+      <span>{{data.commentTimes}}</span>
+    </div>
+  </script>
+  <!--评论回复模板-->
+  <script type="text/html" id="commentTpl">
+  {{each data as item index}}
+    <li>
+      <div class="nickname ">
+        <img src="images/all_icon_GroupLogo.png">
+        <div class="nickname-header">
+          <span class="vdUser">{{item.memberName}}</span>
+          <img src="images/all_icon_Female.png">
+          <div class="before">1F&nbsp;{{item.commentTime}}</div>
+        </div>
+      </div>
+      <div class="post-text post">
+        {{item.content}}
+      </div>
+      <span class="godetail"><a href="replylist.html" style="display: block"><img src="images/all_icon_small_Next.png"></a></span>
+      <ul class="vd-twoLevelList">
+        {{include 'replyTpl' item }}
+      </ul>
+    </li>
+  {{/each}}
+  </script>
+<!--评论回复子模板-->
+<script type="text/html" id="replyTpl">
+  {{each replysVoList as item index}}
+  {{if index <2}}
+  <li>
+    <span class="vdUser">大路</span>
+    {{if isLouzhu ==1}}
+    <span class="landlord">楼主</span>：
+    {{/if}}
+    <span class="crnr">多谢多谢</span>
+  </li>
+  {{/if}}
+  {{/each}}
+  {{if replysVoList.length > 2 }}
+  <li class="more-comments"><a href="#">更多评论></a></li>
+  {{/if}}
+</script>
+
+</body>
+<script type="text/javascript" data-main="js/tzxq.js" src="js/lib/require.min.js"></script>
+</html>

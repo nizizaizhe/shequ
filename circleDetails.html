@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>详情</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!--<link rel="shortcut icon" href="http://www.suning.com/favicon.ico" type="image/x-icon" />-->
+    <link rel="stylesheet" type="text/css" href="css/sm.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/circleDetails.css"/>
+</head>
+<body>
+<div class="top">
+    <header class="bar bar-nav detailBar">
+        <a class="button button-link button-nav pull-left back" href="javascript:;"
+           onClick="javascript:history.go(-1);">
+            <img src="images/all_icon_Back.png">
+        </a>
+        <h1 class="title detailTitle">详情</h1>
+    </header>
+</div>
+<div class="text-content detils">
+    <span class="Notice">公告</span>
+    <div class="textbodywrap">
+
+    </div>
+    <div class="show-more">显示更多</div>
+</div>
+<div class="detailswrap">
+
+</div>
+
+<script type="text/html" id="gonggaoTpl">
+    <div class="text-body">{{data}}</div>
+</script>
+<script type="text/html" id="detailsTpl">
+    <div class="information">
+        <div class="circle-icon">
+            <span>圈子ICON</span>
+            <img src="{{picurl}}{{data.logo}}">
+        </div>
+        <div class="circle-icon circleName">
+            <span>圈子名称</span>
+            <span>{{data.name}}</span>
+        </div>
+        <div class="circle-icon taxonomy">
+            <span>所属分类</span>
+            <span>{{data.categoryName}}</span>
+        </div>
+        <div class="circle-icon introduce ">
+            <span>简介</span>
+            <span>{{data.brief}}</span>
+        </div>
+    </div>
+    <div class="numberofPeople">
+        <div class="num">
+            <span>关注人数</span>
+            <span>{{data.followCount}}</span>
+        </div>
+        {{if data.memberList == 0}}
+        <div class="prompt-attention">没有人关住好寂寞,快来关注我吧！</div>
+        {{else}}
+        <div class="head-portrait">
+            {{each data.memberList as item index}}
+            <span> <img src="{{picurl}}{{item.avatar}}"></span>
+            {{/each}}
+            <span class="go"><a href="followPeople.html?id={{data.id}}"><img src="images/all_icon_small_Next.png"></a></span>
+        </div>
+        {{/if}}
+    </div>
+    {{if data.followFlag==1}}
+    <div class="guanzhu">取消关注</div>
+    {{else}}
+    <div class="guanzhu">关注</div>
+    {{/if}}
+</script>
+</body>
+<script type="text/javascript" data-main="js/circleDetails.js" src="js/lib/require.min.js"></script>
+</html>

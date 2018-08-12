@@ -1,0 +1,145 @@
+.bar{
+  background: #fed322;
+}
+.text-content {
+  width: 100%;
+  background: #fff;
+  margin-top: 0.6rem;
+  padding: 0 0.8rem 2rem 0.5rem;
+  position: relative;
+}
+.Notice {
+  font-size: 0.9rem;
+  color: #555;
+  font-weight: bold;
+
+}
+.title.detailTitle{
+  font-size: 1rem;
+  font-weight: bold;
+}
+.text-body.clamp {
+  -webkit-line-clamp: 4;
+}
+.text-body {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-size: 0.65rem;
+  color: #8a8a8a;
+}
+.textbodywrap{
+  margin-top:0.875rem;
+}
+.show-more {
+  position: absolute;
+  bottom: 0.8rem;
+  left: 0.5rem;
+  font-size: 0.52rem;
+  color: #73421a;
+}
+.text-content.detils{
+  margin-top:3.2rem;
+  padding-top:0.8rem;
+}
+.information{
+  padding-left:1rem;
+  background: #fff;
+  margin-top:0.625rem;
+}
+.circle-icon{
+  width: 100%;
+  height: 2.15rem;
+  line-height: 2.15rem;
+  border-bottom: 1px solid #e6e6e6;
+  position: relative;
+}
+.circle-icon img{
+  width: 1.5rem;
+  height: 1.5rem;
+  position: absolute;
+  top: 50%;
+  right: 0.8rem;
+  margin-top: -0.75rem;
+  border-radius: 50%;
+}
+.circle-icon span{
+  font-size: 0.677rem;
+  color:#323232;
+  font-weight: bold;
+}
+.circleName,.taxonomy,.introduce{
+  display: flex;
+  justify-content: space-between;
+  padding-right:0.8rem;
+}
+.circleName span:last-child,.taxonomy span:last-child,.introduce span:last-child{
+  font-size: 0.525rem;
+  color:#808080;
+}
+
+.numberofPeople{
+  margin-top:0.625rem;
+  background: #fff;
+  padding:0.75rem 0 0 1rem;
+  position: relative;
+}
+.num{
+  font-size: 0.677rem;
+  color:#555555;
+  font-weight: bold;
+}
+.prompt-attention{
+  font-size: 0.52rem;
+  color:#808080;
+  padding-bottom: 0.75rem;
+  text-align: center;
+}
+.head-portrait img{
+  width:1.25rem;
+  height:1.25rem;
+  margin-right:0.5rem;
+  border-radius: 50%;
+}
+.head-portrait{
+  position: relative;
+  padding-right: 3rem;
+}
+.go img{
+  width:0.4rem;
+  height:0.7rem;
+
+}
+.go{
+  position: absolute;
+  top:0;
+  right: 1.4rem;
+  transform: translateY(-50%);
+}
+.guanzhu{
+  background: #fd8960;
+  height:1.5rem;
+  line-height: 1.5rem;
+  margin: 0 6.95rem;
+  border-radius: 0.75rem;
+  text-align: center;
+  font-size:0.85rem;
+  color:#fff;
+  margin-top:1rem;
+}
+.bar.detailBar{
+  height:3.2rem;
+  padding-top:1rem;
+}
+.back img{
+  width:0.625rem;
+  height:1rem;
+}
+
+.back{
+  display: inline-block;
+  width:2rem;
+  height:2rem;
+}
+.mypreloader{display: block;margin: 0 auto;}
+.mypreloader.hide{display: none}
